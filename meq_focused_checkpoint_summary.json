@@ -1,0 +1,2037 @@
+{
+  "design": {
+    "n_training_seeds": 20,
+    "starts": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        6
+      ]
+    ],
+    "checkpoints": [
+      1200,
+      2000
+    ],
+    "evaluation_episodes_per_seed_checkpoint_condition": 50,
+    "metabolism": [
+      1.0,
+      1.6
+    ],
+    "epsilon_schedule": "1.0 to 0.05 linearly over first 1200 training episodes; then 0.05"
+  },
+  "summary": [
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 1200,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.9986900000000001,
+        "half95": 0.001740888959851127,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.9969999999999999,
+        "half95": 0.003429079199711602,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 199.791,
+        "half95": 0.2980824798406438,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 9.087,
+        "half95": 3.1565856682129376,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 7.806,
+        "half95": 1.0321967320019858,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 1.8370000000000002,
+        "half95": 1.7963212810428193,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.34,
+          "water_intakes": 7.28,
+          "hazard_steps": 7.9
+        },
+        {
+          "seed": 31001,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.6,
+          "water_intakes": 7.54,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.88,
+          "water_intakes": 7.12,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.36,
+          "water_intakes": 7.26,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31004,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.08,
+          "water_intakes": 7.36,
+          "hazard_steps": 6.1
+        },
+        {
+          "seed": 31005,
+          "viability": 0.9849000000000001,
+          "survival": 0.98,
+          "alive_steps": 197.32,
+          "food_intakes": 7.02,
+          "water_intakes": 7.36,
+          "hazard_steps": 0.1
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.36,
+          "water_intakes": 7.36,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31007,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.98,
+          "water_intakes": 7.76,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 25.66,
+          "water_intakes": 7.02,
+          "hazard_steps": 4.5
+        },
+        {
+          "seed": 31009,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 5.94,
+          "water_intakes": 17.12,
+          "hazard_steps": 3.38
+        },
+        {
+          "seed": 31010,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.46,
+          "water_intakes": 7.3,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31011,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 5.42,
+          "water_intakes": 7.92,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.06,
+          "water_intakes": 7.36,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.18,
+          "water_intakes": 7.26,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31014,
+          "viability": 0.9925,
+          "survival": 0.98,
+          "alive_steps": 198.88,
+          "food_intakes": 6.38,
+          "water_intakes": 7.3,
+          "hazard_steps": 14.7
+        },
+        {
+          "seed": 31015,
+          "viability": 0.9964,
+          "survival": 0.98,
+          "alive_steps": 199.62,
+          "food_intakes": 7.92,
+          "water_intakes": 6.94,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31016,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.08,
+          "water_intakes": 7.24,
+          "hazard_steps": 0.06
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.18,
+          "water_intakes": 7.02,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 31.44,
+          "water_intakes": 7.06,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.4,
+          "water_intakes": 7.54,
+          "hazard_steps": 0.0
+        }
+      ]
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 2000,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.981535,
+        "half95": 0.03454353935856698,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.9710000000000001,
+        "half95": 0.05076845019611874,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 196.93400000000003,
+        "half95": 5.772604396486433,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 7.906999999999998,
+        "half95": 2.6243025314469546,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 7.388000000000001,
+        "half95": 0.23018793587025915,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 1.1219999999999999,
+        "half95": 1.203019051524429,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.48,
+          "water_intakes": 7.04,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31001,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.82,
+          "water_intakes": 7.42,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.02,
+          "water_intakes": 7.5,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 0.6702000000000001,
+          "survival": 0.52,
+          "alive_steps": 144.86,
+          "food_intakes": 2.1,
+          "water_intakes": 8.88,
+          "hazard_steps": 0.32
+        },
+        {
+          "seed": 31004,
+          "viability": 0.9605,
+          "survival": 0.9,
+          "alive_steps": 193.82,
+          "food_intakes": 5.8,
+          "water_intakes": 6.32,
+          "hazard_steps": 1.02
+        },
+        {
+          "seed": 31005,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.14,
+          "water_intakes": 7.44,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.3,
+          "water_intakes": 7.36,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31007,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.38,
+          "water_intakes": 7.14,
+          "hazard_steps": 2.48
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.18,
+          "water_intakes": 7.42,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31009,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.06,
+          "water_intakes": 7.7,
+          "hazard_steps": 7.84
+        },
+        {
+          "seed": 31010,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.86,
+          "water_intakes": 7.66,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31011,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.86,
+          "water_intakes": 7.48,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 5.84,
+          "water_intakes": 7.76,
+          "hazard_steps": 1.86
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.46,
+          "water_intakes": 7.12,
+          "hazard_steps": 0.04
+        },
+        {
+          "seed": 31014,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.78,
+          "water_intakes": 7.24,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31015,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.58,
+          "water_intakes": 6.94,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31016,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 31.2,
+          "water_intakes": 7.84,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.5,
+          "water_intakes": 6.98,
+          "hazard_steps": 8.86
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.64,
+          "water_intakes": 7.34,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.14,
+          "water_intakes": 7.18,
+          "hazard_steps": 0.0
+        }
+      ]
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 1200,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.980935,
+        "half95": 0.013141677663906734,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.9719999999999999,
+        "half95": 0.016466302470580077,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 196.52,
+        "half95": 2.4774539424990754,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 10.870999999999999,
+        "half95": 2.1141655175472525,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 10.053,
+        "half95": 0.5070826351165946,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 1.7129999999999999,
+        "half95": 1.6688174616223719,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.0,
+          "water_intakes": 9.96,
+          "hazard_steps": 9.58
+        },
+        {
+          "seed": 31001,
+          "viability": 0.9843999999999999,
+          "survival": 0.96,
+          "alive_steps": 197.4,
+          "food_intakes": 9.46,
+          "water_intakes": 10.84,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31002,
+          "viability": 0.9906,
+          "survival": 0.98,
+          "alive_steps": 198.32,
+          "food_intakes": 9.34,
+          "water_intakes": 9.44,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.14,
+          "water_intakes": 9.98,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31004,
+          "viability": 0.9831,
+          "survival": 0.98,
+          "alive_steps": 196.82,
+          "food_intakes": 9.62,
+          "water_intakes": 9.74,
+          "hazard_steps": 4.64
+        },
+        {
+          "seed": 31005,
+          "viability": 0.9324000000000001,
+          "survival": 0.92,
+          "alive_steps": 187.28,
+          "food_intakes": 9.26,
+          "water_intakes": 9.28,
+          "hazard_steps": 0.06
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.02,
+          "water_intakes": 9.86,
+          "hazard_steps": 0.12
+        },
+        {
+          "seed": 31007,
+          "viability": 0.9859,
+          "survival": 0.94,
+          "alive_steps": 198.34,
+          "food_intakes": 7.88,
+          "water_intakes": 9.8,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 24.0,
+          "water_intakes": 9.54,
+          "hazard_steps": 1.28
+        },
+        {
+          "seed": 31009,
+          "viability": 0.9493,
+          "survival": 0.94,
+          "alive_steps": 190.46,
+          "food_intakes": 9.18,
+          "water_intakes": 14.26,
+          "hazard_steps": 6.5
+        },
+        {
+          "seed": 31010,
+          "viability": 0.977,
+          "survival": 0.94,
+          "alive_steps": 196.18,
+          "food_intakes": 8.86,
+          "water_intakes": 10.36,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31011,
+          "viability": 0.9519,
+          "survival": 0.94,
+          "alive_steps": 191.04,
+          "food_intakes": 6.7,
+          "water_intakes": 10.0,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.9,
+          "water_intakes": 9.88,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.1,
+          "water_intakes": 10.0,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31014,
+          "viability": 0.9658,
+          "survival": 0.96,
+          "alive_steps": 193.64,
+          "food_intakes": 8.82,
+          "water_intakes": 9.32,
+          "hazard_steps": 11.96
+        },
+        {
+          "seed": 31015,
+          "viability": 0.8985999999999998,
+          "survival": 0.88,
+          "alive_steps": 180.92,
+          "food_intakes": 10.24,
+          "water_intakes": 8.72,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31016,
+          "viability": 0.9997,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.1,
+          "water_intakes": 10.02,
+          "hazard_steps": 0.12
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 9.82,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 23.66,
+          "water_intakes": 10.0,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.16,
+          "water_intakes": 10.24,
+          "hazard_steps": 0.0
+        }
+      ]
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 2000,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.9463699999999999,
+        "half95": 0.0767396073857633,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.914,
+        "half95": 0.11960306864484352,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 190.317,
+        "half95": 13.887884571255736,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 9.609,
+        "half95": 1.4039366805231899,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 9.552,
+        "half95": 0.6620346871745587,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 1.504,
+        "half95": 1.4873392161634427,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 0.9924000000000001,
+          "survival": 0.98,
+          "alive_steps": 198.74,
+          "food_intakes": 9.66,
+          "water_intakes": 9.7,
+          "hazard_steps": 0.06
+        },
+        {
+          "seed": 31001,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.74,
+          "water_intakes": 10.04,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.06,
+          "water_intakes": 10.1,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 0.38,
+          "survival": 0.1,
+          "alive_steps": 87.94,
+          "food_intakes": 1.24,
+          "water_intakes": 7.82,
+          "hazard_steps": 0.32
+        },
+        {
+          "seed": 31004,
+          "viability": 0.5713,
+          "survival": 0.24,
+          "alive_steps": 122.26,
+          "food_intakes": 5.46,
+          "water_intakes": 4.06,
+          "hazard_steps": 0.36
+        },
+        {
+          "seed": 31005,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.94,
+          "water_intakes": 10.04,
+          "hazard_steps": 0.1
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.04,
+          "water_intakes": 9.9,
+          "hazard_steps": 0.06
+        },
+        {
+          "seed": 31007,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.0,
+          "water_intakes": 9.94,
+          "hazard_steps": 7.04
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.94,
+          "water_intakes": 10.02,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31009,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.0,
+          "water_intakes": 10.3,
+          "hazard_steps": 8.26
+        },
+        {
+          "seed": 31010,
+          "viability": 0.9937,
+          "survival": 0.98,
+          "alive_steps": 198.94,
+          "food_intakes": 9.86,
+          "water_intakes": 9.98,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31011,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.86,
+          "water_intakes": 10.06,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.1,
+          "water_intakes": 10.06,
+          "hazard_steps": 3.24
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.02,
+          "water_intakes": 9.84,
+          "hazard_steps": 0.06
+        },
+        {
+          "seed": 31014,
+          "viability": 0.9992,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.64,
+          "water_intakes": 9.82,
+          "hazard_steps": 0.14
+        },
+        {
+          "seed": 31015,
+          "viability": 0.991,
+          "survival": 0.98,
+          "alive_steps": 198.46,
+          "food_intakes": 9.52,
+          "water_intakes": 9.22,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31016,
+          "viability": 0.9998,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 18.66,
+          "water_intakes": 10.92,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.84,
+          "water_intakes": 9.7,
+          "hazard_steps": 10.42
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.5,
+          "water_intakes": 9.58,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.1,
+          "water_intakes": 9.94,
+          "hazard_steps": 0.0
+        }
+      ]
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 1200,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.980705,
+        "half95": 0.03568397974432775,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.961,
+        "half95": 0.07727409467568913,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 197.00099999999998,
+        "half95": 5.735314060998114,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 13.498000000000001,
+        "half95": 7.415766150624038,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 11.831999999999999,
+        "half95": 8.709332468422183,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 0.861,
+        "half95": 0.5428775189037627,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 0.6581,
+          "survival": 0.26,
+          "alive_steps": 145.04,
+          "food_intakes": 4.16,
+          "water_intakes": 9.84,
+          "hazard_steps": 2.6
+        },
+        {
+          "seed": 31001,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.36,
+          "water_intakes": 7.28,
+          "hazard_steps": 2.58
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.06,
+          "water_intakes": 7.18,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.68,
+          "water_intakes": 6.72,
+          "hazard_steps": 3.14
+        },
+        {
+          "seed": 31004,
+          "viability": 0.9994,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.06,
+          "water_intakes": 7.1,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31005,
+          "viability": 0.9996,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 32.06,
+          "water_intakes": 6.98,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.14,
+          "water_intakes": 7.1,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31007,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 25.6,
+          "water_intakes": 7.02,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.34,
+          "water_intakes": 7.1,
+          "hazard_steps": 1.02
+        },
+        {
+          "seed": 31009,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 13.76,
+          "water_intakes": 6.94,
+          "hazard_steps": 2.28
+        },
+        {
+          "seed": 31010,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 18.76,
+          "water_intakes": 7.08,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31011,
+          "viability": 0.9721,
+          "survival": 0.98,
+          "alive_steps": 197.66,
+          "food_intakes": 6.78,
+          "water_intakes": 15.74,
+          "hazard_steps": 0.14
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.98,
+          "water_intakes": 7.32,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 73.2,
+          "water_intakes": 4.92,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31014,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.06,
+          "water_intakes": 7.74,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31015,
+          "viability": 0.9849000000000001,
+          "survival": 0.98,
+          "alive_steps": 197.32,
+          "food_intakes": 7.0,
+          "water_intakes": 7.68,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31016,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 3.8,
+          "water_intakes": 90.4,
+          "hazard_steps": 1.0
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 14.42,
+          "water_intakes": 7.02,
+          "hazard_steps": 2.42
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.72,
+          "water_intakes": 7.64,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.02,
+          "water_intakes": 7.84,
+          "hazard_steps": 2.0
+        }
+      ]
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 2000,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 20
+      },
+      "survival": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 200.0,
+        "half95": 0.0,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 7.625,
+        "half95": 1.1789872999163082,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 8.317,
+        "half95": 1.9994433203134978,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 1.3339999999999999,
+        "half95": 1.3887844636158782,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.06,
+          "water_intakes": 7.8,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31001,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.16,
+          "water_intakes": 7.38,
+          "hazard_steps": 3.48
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.6,
+          "water_intakes": 26.44,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.64,
+          "water_intakes": 7.38,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31004,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.5,
+          "water_intakes": 7.02,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31005,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.74,
+          "water_intakes": 7.5,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.14,
+          "water_intakes": 7.62,
+          "hazard_steps": 10.5
+        },
+        {
+          "seed": 31007,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.98,
+          "water_intakes": 7.58,
+          "hazard_steps": 5.54
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.42,
+          "water_intakes": 7.12,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31009,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 18.24,
+          "water_intakes": 7.1,
+          "hazard_steps": 7.06
+        },
+        {
+          "seed": 31010,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.28,
+          "water_intakes": 7.64,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31011,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.1,
+          "water_intakes": 7.42,
+          "hazard_steps": 0.04
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.56,
+          "water_intakes": 7.1,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.34,
+          "water_intakes": 7.18,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31014,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.92,
+          "water_intakes": 7.52,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31015,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 6.92,
+          "water_intakes": 7.54,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31016,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.4,
+          "water_intakes": 7.18,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.16,
+          "water_intakes": 7.5,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.12,
+          "water_intakes": 7.4,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 7.22,
+          "water_intakes": 6.92,
+          "hazard_steps": 0.0
+        }
+      ]
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 1200,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.938635,
+        "half95": 0.06940202608530753,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.9019999999999999,
+        "half95": 0.10293511125282558,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 189.089,
+        "half95": 12.74261538715356,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 12.559000000000001,
+        "half95": 5.504047120988486,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 13.627,
+        "half95": 7.767656584020619,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 0.8800000000000001,
+        "half95": 0.7257738494861156,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 0.32360000000000005,
+          "survival": 0.0,
+          "alive_steps": 75.68,
+          "food_intakes": 2.2,
+          "water_intakes": 9.04,
+          "hazard_steps": 0.84
+        },
+        {
+          "seed": 31001,
+          "viability": 0.9831,
+          "survival": 0.98,
+          "alive_steps": 196.82,
+          "food_intakes": 9.18,
+          "water_intakes": 9.7,
+          "hazard_steps": 2.0
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.04,
+          "water_intakes": 9.98,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 0.9349000000000001,
+          "survival": 0.84,
+          "alive_steps": 188.58,
+          "food_intakes": 8.42,
+          "water_intakes": 8.0,
+          "hazard_steps": 1.84
+        },
+        {
+          "seed": 31004,
+          "viability": 0.9653,
+          "survival": 0.96,
+          "alive_steps": 193.96,
+          "food_intakes": 7.6,
+          "water_intakes": 9.76,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31005,
+          "viability": 0.9831,
+          "survival": 0.98,
+          "alive_steps": 196.82,
+          "food_intakes": 19.58,
+          "water_intakes": 9.66,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.86,
+          "water_intakes": 9.98,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31007,
+          "viability": 0.9989,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 16.46,
+          "water_intakes": 9.58,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31008,
+          "viability": 0.9839,
+          "survival": 0.98,
+          "alive_steps": 197.04,
+          "food_intakes": 9.78,
+          "water_intakes": 9.7,
+          "hazard_steps": 1.14
+        },
+        {
+          "seed": 31009,
+          "viability": 0.9682999999999999,
+          "survival": 0.94,
+          "alive_steps": 194.7,
+          "food_intakes": 11.1,
+          "water_intakes": 9.1,
+          "hazard_steps": 2.2
+        },
+        {
+          "seed": 31010,
+          "viability": 0.9671,
+          "survival": 0.94,
+          "alive_steps": 194.14,
+          "food_intakes": 13.36,
+          "water_intakes": 9.6,
+          "hazard_steps": 0.1
+        },
+        {
+          "seed": 31011,
+          "viability": 0.8891,
+          "survival": 0.86,
+          "alive_steps": 181.96,
+          "food_intakes": 8.6,
+          "water_intakes": 18.46,
+          "hazard_steps": 0.44
+        },
+        {
+          "seed": 31012,
+          "viability": 0.9627,
+          "survival": 0.9,
+          "alive_steps": 194.02,
+          "food_intakes": 8.82,
+          "water_intakes": 9.64,
+          "hazard_steps": 0.14
+        },
+        {
+          "seed": 31013,
+          "viability": 0.915,
+          "survival": 0.84,
+          "alive_steps": 185.8,
+          "food_intakes": 60.0,
+          "water_intakes": 6.32,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31014,
+          "viability": 0.9831,
+          "survival": 0.98,
+          "alive_steps": 196.82,
+          "food_intakes": 9.8,
+          "water_intakes": 10.04,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31015,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 10.32,
+          "hazard_steps": 0.02
+        },
+        {
+          "seed": 31016,
+          "viability": 0.992,
+          "survival": 0.98,
+          "alive_steps": 198.78,
+          "food_intakes": 5.5,
+          "water_intakes": 83.52,
+          "hazard_steps": 1.06
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 13.58,
+          "water_intakes": 9.9,
+          "hazard_steps": 0.98
+        },
+        {
+          "seed": 31018,
+          "viability": 0.9226000000000001,
+          "survival": 0.86,
+          "alive_steps": 186.66,
+          "food_intakes": 7.44,
+          "water_intakes": 10.14,
+          "hazard_steps": 0.14
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.88,
+          "water_intakes": 10.1,
+          "hazard_steps": 6.68
+        }
+      ]
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 2000,
+      "n_training_seeds": 20,
+      "viability": {
+        "mean": 0.9988400000000001,
+        "half95": 0.0016990997366810063,
+        "n": 20
+      },
+      "survival": {
+        "mean": 0.998,
+        "half95": 0.0028810027859465163,
+        "n": 20
+      },
+      "alive_steps": {
+        "mean": 199.80599999999998,
+        "half95": 0.2921074157616461,
+        "n": 20
+      },
+      "food_intakes": {
+        "mean": 10.084,
+        "half95": 0.7343298777143685,
+        "n": 20
+      },
+      "water_intakes": {
+        "mean": 10.777,
+        "half95": 1.7591223478209537,
+        "n": 20
+      },
+      "hazard_steps": {
+        "mean": 1.5719999999999998,
+        "half95": 1.599019702071175,
+        "n": 20
+      },
+      "seed_details": [
+        {
+          "seed": 31000,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 10.32,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31001,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.04,
+          "water_intakes": 10.04,
+          "hazard_steps": 2.94
+        },
+        {
+          "seed": 31002,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.0,
+          "water_intakes": 26.72,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31003,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.12,
+          "water_intakes": 9.92,
+          "hazard_steps": 0.04
+        },
+        {
+          "seed": 31004,
+          "viability": 0.9999000000000001,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 9.74,
+          "hazard_steps": 0.04
+        },
+        {
+          "seed": 31005,
+          "viability": 0.992,
+          "survival": 0.98,
+          "alive_steps": 198.62,
+          "food_intakes": 9.62,
+          "water_intakes": 10.02,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31006,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.52,
+          "water_intakes": 9.9,
+          "hazard_steps": 10.1
+        },
+        {
+          "seed": 31007,
+          "viability": 0.9854,
+          "survival": 0.98,
+          "alive_steps": 197.5,
+          "food_intakes": 9.5,
+          "water_intakes": 9.58,
+          "hazard_steps": 8.36
+        },
+        {
+          "seed": 31008,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.0,
+          "water_intakes": 9.92,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31009,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 16.58,
+          "water_intakes": 9.84,
+          "hazard_steps": 9.52
+        },
+        {
+          "seed": 31010,
+          "viability": 0.9996,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 8.94,
+          "water_intakes": 9.98,
+          "hazard_steps": 0.04
+        },
+        {
+          "seed": 31011,
+          "viability": 0.9999000000000001,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 10.1,
+          "hazard_steps": 0.12
+        },
+        {
+          "seed": 31012,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 9.86,
+          "hazard_steps": 0.08
+        },
+        {
+          "seed": 31013,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.8,
+          "water_intakes": 10.06,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31014,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.96,
+          "water_intakes": 10.1,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31015,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.98,
+          "water_intakes": 9.98,
+          "hazard_steps": 0.1
+        },
+        {
+          "seed": 31016,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.9,
+          "water_intakes": 9.92,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31017,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.96,
+          "water_intakes": 10.2,
+          "hazard_steps": 0.0
+        },
+        {
+          "seed": 31018,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 10.04,
+          "water_intakes": 10.02,
+          "hazard_steps": 0.1
+        },
+        {
+          "seed": 31019,
+          "viability": 1.0,
+          "survival": 1.0,
+          "alive_steps": 200.0,
+          "food_intakes": 9.8,
+          "water_intakes": 9.32,
+          "hazard_steps": 0.0
+        }
+      ]
+    }
+  ],
+  "paired_checkpoint_contrasts": [
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "viability",
+      "mean": 0.017154999999999997,
+      "half95": 0.03474825074088528,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "survival",
+      "mean": 0.025999999999999995,
+      "half95": 0.051276813882053324,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "alive_steps",
+      "mean": 2.8569999999999993,
+      "half95": 5.80579867197188,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "food_intakes",
+      "mean": 1.1800000000000002,
+      "half95": 4.2233269174067765,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "water_intakes",
+      "mean": 0.418,
+      "half95": 1.0230553170166314,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "hazard_steps",
+      "mean": 0.7149999999999999,
+      "half95": 2.206803157086298,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "viability",
+      "mean": 0.03456499999999999,
+      "half95": 0.07963096864959653,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "survival",
+      "mean": 0.05799999999999998,
+      "half95": 0.12350286918550771,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "alive_steps",
+      "mean": 6.202999999999998,
+      "half95": 14.424938697911701,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "food_intakes",
+      "mean": 1.262,
+      "half95": 2.5301516576526226,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "water_intakes",
+      "mean": 0.5010000000000001,
+      "half95": 0.769457752077499,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "hazard_steps",
+      "mean": 0.209,
+      "half95": 2.2037536609914476,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "viability",
+      "mean": -0.019294999999999996,
+      "half95": 0.03568397974432774,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "survival",
+      "mean": -0.039,
+      "half95": 0.07727409467568913,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "alive_steps",
+      "mean": -2.999000000000001,
+      "half95": 5.735314060998116,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "food_intakes",
+      "mean": 5.873000000000001,
+      "half95": 7.506749490246968,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "water_intakes",
+      "mean": 3.5149999999999997,
+      "half95": 9.066643818666643,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "contrast": "1200_minus_2000",
+      "outcome": "hazard_steps",
+      "mean": -0.473,
+      "half95": 1.4747191199200753,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 20,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "viability",
+      "mean": -0.06020500000000001,
+      "half95": 0.06962920184913654,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 19,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "survival",
+      "mean": -0.09600000000000002,
+      "half95": 0.10336873121220484,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 19,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "alive_steps",
+      "mean": -10.717,
+      "half95": 12.7802372777817,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 19,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "food_intakes",
+      "mean": 2.475,
+      "half95": 5.585142475406254,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 19,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "water_intakes",
+      "mean": 2.85,
+      "half95": 8.053229078458234,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 19,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "contrast": "1200_minus_2000",
+      "outcome": "hazard_steps",
+      "mean": -0.6920000000000002,
+      "half95": 1.7605166611780398,
+      "n": 20,
+      "n_seeds_checkpoint1200_survival_gt_0": 19,
+      "n_seeds_checkpoint2000_survival_gt_0": 20
+    }
+  ]
+}
