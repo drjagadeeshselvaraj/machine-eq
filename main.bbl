@@ -1,0 +1,209 @@
+\begin{thebibliography}{35}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ashby(1952)]{ashby1952}
+W.~R. Ashby.
+\newblock \emph{Design for a Brain}.
+\newblock Chapman \& Hall, London, 1952.
+
+\bibitem[Baars(1988)]{baars1988}
+B.~J. Baars.
+\newblock \emph{A Cognitive Theory of Consciousness}.
+\newblock Cambridge University Press, 1988.
+
+\bibitem[Barrett(2017)]{barrett2017}
+L.~F. Barrett.
+\newblock \emph{How Emotions Are Made: The Secret Life of the Brain}.
+\newblock Houghton Mifflin Harcourt, 2017.
+
+\bibitem[Birch(2024)]{birch2024}
+J.~Birch.
+\newblock \emph{The Edge of Sentience: Risk and Precaution in Humans, Other
+  Animals, and {AI}}.
+\newblock Oxford University Press, 2024.
+
+\bibitem[Butlin et~al.(2023)Butlin, Long, Elmoznino, Bengio, Birch, Constant,
+  et~al.]{butlin2023}
+P.~Butlin, R.~Long, E.~Elmoznino, Y.~Bengio, J.~Birch, A.~Constant, et~al.
+\newblock Consciousness in artificial intelligence: Insights from the science
+  of consciousness.
+\newblock arXiv:2308.08708, 2023.
+
+\bibitem[Cannon(1932)]{cannon1932}
+W.~B. Cannon.
+\newblock \emph{The Wisdom of the Body}.
+\newblock W. W. Norton, 1932.
+
+\bibitem[Chalmers(1995)]{chalmers1995}
+D.~J. Chalmers.
+\newblock Facing up to the problem of consciousness.
+\newblock \emph{Journal of Consciousness Studies}, 2\penalty0 (3):\penalty0
+  200--219, 1995.
+
+\bibitem[Craig(2002)]{craig2002}
+A.~D. Craig.
+\newblock How do you feel? {I}nteroception: the sense of the physiological
+  condition of the body.
+\newblock \emph{Nature Reviews Neuroscience}, 3\penalty0 (8):\penalty0
+  655--666, 2002.
+
+\bibitem[Damasio(1994)]{damasio1994}
+A.~R. Damasio.
+\newblock \emph{Descartes' Error: Emotion, Reason, and the Human Brain}.
+\newblock Putnam, 1994.
+
+\bibitem[Damasio(1999)]{damasio1999}
+A.~R. Damasio.
+\newblock \emph{The Feeling of What Happens: Body and Emotion in the Making of
+  Consciousness}.
+\newblock Harcourt Brace, 1999.
+
+\bibitem[Damasio(2018)]{damasio2018}
+A.~R. Damasio.
+\newblock \emph{The Strange Order of Things: Life, Feeling, and the Making of
+  Cultures}.
+\newblock Pantheon, 2018.
+
+\bibitem[Dehaene(2014)]{dehaene2014}
+S.~Dehaene.
+\newblock \emph{Consciousness and the Brain: Deciphering How the Brain Codes
+  Our Thoughts}.
+\newblock Viking, 2014.
+
+\bibitem[Friston(2010)]{friston2010}
+K.~Friston.
+\newblock The free-energy principle: a unified brain theory?
+\newblock \emph{Nature Reviews Neuroscience}, 11\penalty0 (2):\penalty0
+  127--138, 2010.
+
+\bibitem[Garfinkel et~al.(2015)Garfinkel, Seth, Barrett, Suzuki, and
+  Critchley]{garfinkel2015}
+S.~N. Garfinkel, A.~K. Seth, A.~B. Barrett, K.~Suzuki, and H.~D. Critchley.
+\newblock Knowing your own heart: Distinguishing interoceptive accuracy from
+  interoceptive awareness.
+\newblock \emph{Biological Psychology}, 104:\penalty0 65--74, 2015.
+
+\bibitem[Graziano(2013)]{graziano2013}
+M.~S.~A. Graziano.
+\newblock \emph{Consciousness and the Social Brain}.
+\newblock Oxford University Press, 2013.
+
+\bibitem[Guo and Liu(2026)]{guo2026}
+F.~Guo and H.~Liu.
+\newblock {RoboBATT}: Multirate robot battery and actuator telemetry traces
+  (version 1.0.0).
+\newblock Data set, Zenodo. \url{https://doi.org/10.5281/zenodo.21853137},
+  2026.
+
+\bibitem[Hull(1943)]{hull1943}
+C.~L. Hull.
+\newblock \emph{Principles of Behavior}.
+\newblock Appleton-Century-Crofts, 1943.
+
+\bibitem[Keramati and Gutkin(2014)]{keramati2014}
+M.~Keramati and B.~Gutkin.
+\newblock Homeostatic reinforcement learning for integrating reward collection
+  and physiological stability.
+\newblock \emph{eLife}, 3:\penalty0 e04811, 2014.
+
+\bibitem[Lau and Rosenthal(2011)]{lau2011}
+H.~Lau and D.~Rosenthal.
+\newblock Empirical support for higher-order theories of conscious awareness.
+\newblock \emph{Trends in Cognitive Sciences}, 15\penalty0 (8):\penalty0
+  365--373, 2011.
+
+\bibitem[Long et~al.(2024)Long, Sebo, Butlin, et~al.]{long2024}
+R.~Long, J.~Sebo, P.~Butlin, et~al.
+\newblock Taking {AI} welfare seriously.
+\newblock arXiv:2411.00986, 2024.
+
+\bibitem[Man and Damasio(2019)]{man2019}
+K.~Man and A.~Damasio.
+\newblock Homeostasis and soft robotics in the design of feeling machines.
+\newblock \emph{Nature Machine Intelligence}, 1:\penalty0 446--452, 2019.
+
+\bibitem[Mashour et~al.(2020)Mashour, Roelfsema, Changeux, and
+  Dehaene]{mashour2020}
+G.~A. Mashour, P.~Roelfsema, J.-P. Changeux, and S.~Dehaene.
+\newblock Conscious processing and the global neuronal workspace hypothesis.
+\newblock \emph{Neuron}, 105\penalty0 (5):\penalty0 776--798, 2020.
+
+\bibitem[Metzinger(2021)]{metzinger2021}
+T.~Metzinger.
+\newblock Artificial suffering: An argument for a global moratorium on
+  synthetic phenomenology.
+\newblock \emph{Journal of Artificial Intelligence and Consciousness},
+  8\penalty0 (1):\penalty0 43--66, 2021.
+
+\bibitem[Panksepp(1998)]{panksepp1998}
+J.~Panksepp.
+\newblock \emph{Affective Neuroscience: The Foundations of Human and Animal
+  Emotions}.
+\newblock Oxford University Press, 1998.
+
+\bibitem[Picard(1997)]{picard1997}
+R.~W. Picard.
+\newblock \emph{Affective Computing}.
+\newblock MIT Press, 1997.
+
+\bibitem[Rosenthal(2005)]{rosenthal2005}
+D.~M. Rosenthal.
+\newblock \emph{Consciousness and Mind}.
+\newblock Oxford University Press, 2005.
+
+\bibitem[Schwitzgebel and Garza(2015)]{schwitzgebel2015}
+E.~Schwitzgebel and M.~Garza.
+\newblock A defense of the rights of artificial intelligences.
+\newblock \emph{Midwest Studies in Philosophy}, 39\penalty0 (1):\penalty0
+  98--119, 2015.
+
+\bibitem[Searle(1980)]{searle1980}
+J.~R. Searle.
+\newblock Minds, brains, and programs.
+\newblock \emph{Behavioral and Brain Sciences}, 3\penalty0 (3):\penalty0
+  417--424, 1980.
+
+\bibitem[Seth(2021)]{seth2021}
+A.~K. Seth.
+\newblock \emph{Being You: A New Science of Consciousness}.
+\newblock Dutton, 2021.
+
+\bibitem[Seth and Bayne(2022)]{seth2022}
+A.~K. Seth and T.~Bayne.
+\newblock Theories of consciousness.
+\newblock \emph{Nature Reviews Neuroscience}, 23\penalty0 (7):\penalty0
+  439--452, 2022.
+
+\bibitem[Sterling(2012)]{sterling2012}
+P.~Sterling.
+\newblock Allostasis: A model of predictive regulation.
+\newblock \emph{Physiology \& Behavior}, 106\penalty0 (1):\penalty0 5--15,
+  2012.
+
+\bibitem[Sutton and Barto(2018)]{sutton2018}
+R.~S. Sutton and A.~G. Barto.
+\newblock \emph{Reinforcement Learning: An Introduction}.
+\newblock MIT Press, 2nd edition, 2018.
+
+\bibitem[Tononi(2004)]{tononi2004}
+G.~Tononi.
+\newblock An information integration theory of consciousness.
+\newblock \emph{BMC Neuroscience}, 5:\penalty0 42, 2004.
+
+\bibitem[Tononi et~al.(2016)Tononi, Boly, Massimini, and Koch]{tononi2016}
+G.~Tononi, M.~Boly, M.~Massimini, and C.~Koch.
+\newblock Integrated information theory: from consciousness to its physical
+  substrate.
+\newblock \emph{Nature Reviews Neuroscience}, 17\penalty0 (7):\penalty0
+  450--461, 2016.
+
+\bibitem[Watkins and Dayan(1992)]{watkins1992}
+C.~J. C.~H. Watkins and P.~Dayan.
+\newblock Q-learning.
+\newblock \emph{Machine Learning}, 8\penalty0 (3--4):\penalty0 279--292, 1992.
+
+\end{thebibliography}

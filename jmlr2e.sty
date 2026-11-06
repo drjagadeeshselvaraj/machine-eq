@@ -1,0 +1,64 @@
+% jmlr2e.sty -- LOCAL STAND-IN approximating the JMLR style.
+% Replace with the official jmlr2e.sty from https://www.jmlr.org/format/format.html
+% before submission; main.tex uses only the official macro interface.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{jmlr2e}[2026/01/01 local stand-in for JMLR style]
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\setlength{\oddsidemargin}{0.25in}
+\setlength{\evensidemargin}{0.25in}
+\setlength{\textwidth}{6.0in}
+\setlength{\topmargin}{-0.25in}
+\setlength{\headheight}{14pt}
+\setlength{\headsep}{0.3in}
+\setlength{\textheight}{8.6in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7ex plus 0.2ex}
+\renewcommand{\baselinestretch}{1.0}
+\makeatletter
+\def\jmlrheading#1#2#3#4#5#6#7{%
+  \gdef\@jmlrvol{#1}\gdef\@jmlryear{#2}\gdef\@jmlrpages{#3}%
+  \gdef\@jmlrsub{#4}\gdef\@jmlrpub{#5}\gdef\@jmlrid{#6}\gdef\@jmlrauth{#7}}
+\def\ShortHeadings#1#2{\gdef\@shorttitle{#1}\gdef\@shortauthors{#2}}
+\def\firstpageno#1{\setcounter{page}{#1}}
+\def\editor#1{\gdef\@editor{#1}}\gdef\@editor{}
+\def\name{\bfseries}
+\def\email{\hfill\ttfamily}
+\def\addr{\rmfamily\normalfont}
+\def\acks#1{\subsubsection*{Acknowledgments}#1}
+\gdef\@shorttitle{}\gdef\@shortauthors{}
+\gdef\@jmlrvol{XX}\gdef\@jmlryear{20XX}\gdef\@jmlrpages{1-XX}
+\gdef\@jmlrsub{}\gdef\@jmlrpub{}\gdef\@jmlrid{XX-XXXX}\gdef\@jmlrauth{}
+\fancypagestyle{jmlrfirst}{\fancyhf{}%
+  \fancyhead[L]{\footnotesize Journal of Machine Learning Research \@jmlrvol\ (\@jmlryear) \@jmlrpages}%
+  \fancyhead[R]{\footnotesize Submitted \@jmlrsub; Published \@jmlrpub}%
+  \renewcommand{\headrulewidth}{0pt}\fancyfoot[C]{\thepage}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[CE]{\small\@shortauthors}
+\fancyhead[CO]{\small\@shorttitle}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\def\@maketitle{\vbox{\hsize\textwidth\linewidth\hsize
+  \vskip 0.1in
+  {\centering\Large\bfseries \@title \par}
+  \vskip 0.25in
+  {\normalsize\raggedright \def\\{\par\vskip 2pt}\@author \par}
+  \ifx\@editor\@empty\else\vskip 0.15in\noindent\@editor\par\fi
+  \vskip 0.25in}}
+\def\maketitle{\par\begingroup
+  \def\thefootnote{}\def\@makefnmark{}%
+  \newpage\global\@topnum\z@\@maketitle\thispagestyle{jmlrfirst}%
+  \@thanks
+  \endgroup
+  \begingroup\renewcommand\thefootnote{}\footnotetext{\copyright\ \@jmlryear\ \@jmlrauth. License: CC-BY 4.0, see
+    \texttt{https://creativecommons.org/licenses/by/4.0/}. Attribution requirements are provided at
+    \texttt{http://jmlr.org/papers/v\@jmlrvol/\@jmlrid.html}.}\endgroup}
+\renewenvironment{abstract}{\begin{center}\bfseries\large Abstract\end{center}\vskip -0.5ex
+  \begin{quote}\normalsize}{\end{quote}}
+\newenvironment{keywords}{\noindent\textbf{Keywords:}\ }{\par\vskip 1ex}
+\renewcommand\section{\@startsection{section}{1}{\z@}{-3.5ex plus -1ex minus -.2ex}{2.3ex plus .2ex}{\normalfont\large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus -1ex minus -.2ex}{1.5ex plus .2ex}{\normalfont\normalsize\bfseries}}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\makeatother
+\endinput

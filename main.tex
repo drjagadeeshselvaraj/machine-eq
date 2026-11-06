@@ -1,0 +1,688 @@
+\documentclass[twoside,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,array,float}
+\usepackage{natbib}
+\bibpunct{(}{)}{;}{a}{,}{,}
+\usepackage{url}
+\usepackage{jmlr2e}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Final-submission heading: fill in the values JMLR assigns.
+\jmlrheading{XX}{2026}{1-\pageref{LastPage}}{MM/26}{MM/26}{26-XXXX}{Jagadeesh Selvaraj}
+\ShortHeadings{Machine Emotional Quotient (MEQ)}{Selvaraj}
+\firstpageno{1}
+
+\begin{document}
+
+\title{The Machine Emotional Quotient (MEQ) as a Candidate Framework for Artificial Affective Regulation}
+
+\author{\name Jagadeesh Selvaraj \email [email address to be supplied] \\
+       \addr NextGen Technologies Private Limited\\
+       Chennai, India}
+
+\editor{Editor: [to be assigned by JMLR]}
+
+\maketitle
+
+\begin{abstract}
+Whether machines can feel remains unresolved. This article proposes the Machine Emotional Quotient (MEQ) as a candidate framework for studying one narrower target: regulation in an artificial agent whose internal variables are sensed and linked to a valence-like reward. The proposed index combines four provisional dimensions with a causal necessity gate; it is not a validated instrument. The manuscript reports a ten-seed tabular foraging pilot, but the original code and per-seed data were unavailable for this revision, so those values cannot be independently reproduced. A separate independent reimplementation tested two safe starts, 20 training seeds, and checkpoints at 1,200 and 2,000 episodes. Mean survival was often high, but paired checkpoint intervals included zero and seed-level failures remained. These findings establish limited feasibility under the reimplementation's stated assumptions, not validation of MEQ or reproduction of the original pilot. A descriptive analysis of two unloaded robot-telemetry routines found different motion-current contrasts, but the records expose no controller channel or intervention and do not constitute an MEQ evaluation on a real system. The contribution is therefore a research proposal, a transparent account of preliminary evidence and measurement problems, and a staged plan for validation. None of the results bears directly on subjective experience.
+\end{abstract}
+
+\begin{keywords}
+artificial affect, affective regulation, conceptual framework, interoception, homeostasis, candidate measurement, causal intervention, reinforcement learning
+\end{keywords}
+
+\section{Introduction}\label{sec:1}
+
+People now confide in chatbots, grieve when a companion application is switched off, and read warmth into the replies of language models, while developers market ``empathic'' assistants and researchers publish indicator checklists for machine consciousness \citep{butlin2023}. The question of whether a machine could feel has moved from philosophy seminars to the product roadmap, and with it has come a need for a disciplined way to reason about evidence.
+
+Two inferences are tempting and both are weak. Fluent emotional language is not by itself evidence of inner life, while inferring absence from a system's material substrate requires a theory of why biology matters. This article develops one candidate engineering target: regulation that uses sensed internal variables linked to a valence-like learning signal. That target can be operationalized and tested without treating it as a sufficient condition for feeling or as accepted evidence standard.
+
+The word ``emotion'' can refer to different levels of function (Figure~\ref{fig:1}). Detecting and simulating emotion are studied in affective computing \citep{picard1997} and require no inner life. Regulating an agent's own state through an internal valenced signal is a stronger, behaviorally testable target. Feeling, meaning valenced conscious experience, remains distinct, and no accepted test exists for it. This article focuses on the regulation target as a candidate area of study; whether it is necessary or sufficient for experience remains open.
+
+This article offers a candidate framework and an exploratory feasibility assessment, not a validation study. Its contributions are:
+
+\begin{itemize}
+
+\item
+  an artificial-interoception architecture that makes the proposed regulation target explicit (Section~\ref{sec:3});
+\item
+  a provisional MEQ index, with four candidate dimensions and a causal necessity gate whose validity remains to be tested (Section~\ref{sec:4});
+\item
+  a critical account of the manuscript-reported pilot findings, including unavailable source code, a confounded baseline comparison, and dimensions that performed poorly as defined (Sections~\ref{sec:5} to \ref{sec:7}); and
+\item
+  an independent simulator feasibility check, a descriptive analysis of public robot telemetry, and a staged plan for preregistered validation with controller access (Sections~\ref{sec:5}, \ref{sec:6} and \ref{sec:9}).
+\end{itemize}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/fig1.png}
+\caption{The ladder of machine affect. Most deployed systems occupy rungs 1 and 2. This paper concentrates on rung 3 and treats rung 4 as an open question.}\label{fig:1}
+\end{figure}
+
+\section{Background and design requirements}\label{sec:2}
+
+\subsection{Feeling as the regulation of a body}\label{sec:2.1}
+
+Living systems persist by holding variables such as temperature, glucose and fluid balance within narrow ranges, a process \citet{cannon1932} called homeostasis. The brain does not merely react to drift but predicts needs and acts in advance, which \citet{sterling2012} termed allostasis. Interoception, the sensing of the body's internal state, supplies the inputs: \citet{craig2002} described a pathway carrying the physiological condition of the body to the insula. \citet{garfinkel2015} distinguished interoceptive \emph{accuracy} (how well a signal is tracked), \emph{sensibility} (how well one believes one tracks it) and \emph{awareness} (how well belief matches accuracy), a distinction that matters for machines because a system may claim to sense its state without doing so.
+
+Several accounts build on this base. \citet{damasio1994,damasio1999,damasio2018} argues that feelings are the mental experience of homeostatic regulation and that bodily signals bias choice under uncertainty. \citet{barrett2017} proposes that emotions are constructed from predictions about bodily sensations combined with learned concepts. \citet{seth2021} ties conscious selfhood to the predicted and regulated state of a living body, within the predictive-processing framework formalised by \citet{friston2010}. \citet{panksepp1998} located basic affective systems in subcortical circuits shared across mammals. These accounts disagree on mechanism and on what consciousness requires, but they agree that feeling is tied to the regulation of a body that can fail (Table~\ref{tab:1}).
+
+\subsection{Theories of consciousness and what they imply for machines}\label{sec:2.2}
+
+Feelings are conscious and valenced, so a claim that a machine feels is also a claim about consciousness. \citet{chalmers1995} separated the tractable problems of explaining function from the ``hard problem'' of why any of it is accompanied by experience. The main theories reach different verdicts about machines \citep{seth2022}. Global workspace theory \citep{baars1988,dehaene2014,mashour2020} is functional, so a suitable architecture could in principle qualify. Integrated information theory \citep{tononi2004,tononi2016} is substrate-sensitive and holds that conventional digital hardware has very little integrated information whatever software it runs. Higher-order theories \citep{rosenthal2005,lau2011} and attention-schema theory \citep{graziano2013} favour systems that model their own states. Biological-naturalist positions \citep{searle1980} and some predictive-processing accounts \citep{seth2021} make life or embodiment central (Table~\ref{tab:2}).
+
+\begin{table}[!htbp]
+\centering
+\caption{Major accounts of feeling and what each contributes to machine design.}\label{tab:1}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.1662\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3878\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4460\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{Account} & \textbf{Core claim} & \textbf{Design implication} \\
+\midrule
+\textbf{Damasio} & Feelings are the mental experience of homeostatic regulation & Give the agent regulated internal variables and make behaviour depend on how they fare \\
+\textbf{Barrett} & Emotions are constructed from predictions about bodily sensations plus concepts & Treat interoceptive readings as noisy evidence to be interpreted, not ground truth \\
+\textbf{Seth} & Conscious selfhood is the predicted, regulated state of a living body & Predictive self-modelling matters; the body model is central \\
+\textbf{Panksepp} & Basic affective systems are subcortical and shared across mammals & Begin with simple drive systems before higher-order emotion concepts \\
+\textbf{Friston} & Self-organising systems minimise surprise to stay within viable states & Viability bounds anchor what counts as better or worse \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!htbp]
+\centering
+\caption{Selected theories of consciousness and their stance on machine consciousness.}\label{tab:2}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.2216\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3324\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4460\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{Theory} & \textbf{Key ingredient} & \textbf{Stance on machines} \\
+\midrule
+\textbf{Global workspace} & Broadcast through a limited-capacity workspace & Open: a suitable architecture could qualify \\
+\textbf{Integrated information} & Causal integration in the physical substrate & Digital hardware is a poor substrate, so simulations do not qualify \\
+\textbf{Higher-order} & Representation of one's own mental states & Open: self-monitoring architectures could qualify \\
+\textbf{Attention schema} & A model of one's own attention & Open: implementable in software \\
+\textbf{Predictive processing} & Prediction and regulation of the body & Depends on whether life is required; embodiment and regulation favoured \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize \emph{Summaries are simplified; see the cited sources for formulations and critiques.}}
+\end{table}
+
+Because the verdicts diverge, \citet{butlin2023} translate several theories into indicator properties and treat a larger number of indicators as stronger evidence. They conclude that no current system is a strong candidate and that no obvious technical barrier prevents building systems that satisfy the indicators. We adopt the same theory-neutral stance: build properties on which several theories converge, measure what can be measured causally, and report limits.
+
+\subsection{Related computational approaches}\label{sec:2.3}
+
+Three computational traditions are close to this work. Affective computing builds systems that detect and simulate emotion \citep{picard1997}, which corresponds to the first two rungs in Figure~\ref{fig:1} and leaves the regulating system itself unspecified. Homeostatic reinforcement learning defines reward through movement toward physiological set points \citep{keramati2014}, and is the basis of our reward. Work on feeling machines argues for vulnerable, regulated bodies as the route to artificial feeling \citep{man2019}, and cybernetic precursors such as Ashby's \citeyearpar{ashby1952} ultrastable systems established that self-regulation can be studied as a causal loop. What these traditions do not supply is an evidence standard that distinguishes a system that regulates through an internal signal from one that merely reports it. That standard is the contribution of the MEQ.
+
+\subsection{Design requirements}\label{sec:2.4}
+
+Despite the disagreements, four requirements recur across the accounts above, and a fifth is widely discussed. They form the design checklist for the architecture.
+
+\begin{enumerate}
+\def\labelenumi{}
+\item
+  \textbf{R1. Regulated variables with viability bounds.} The system has internal quantities whose failure ends or damages it.
+\item
+  \textbf{R2. Interoceptive sensing.} It can read those quantities, with error.
+\item
+  \textbf{R3. Valence from the trajectory.} A signal says whether the state is moving toward or away from viability.
+\item
+  \textbf{R4. Control by that signal.} The signal changes behaviour in ways that matter.
+\item
+  \textbf{R5. A self-model.} The system predicts and integrates its own state over time. The pilot does not implement R5.
+\end{enumerate}
+
+\section{Artificial interoception}\label{sec:3}
+
+Following \citet{man2019}, who argue that feeling machines may require something like a vulnerable body, and \citet{keramati2014}, who showed that treating reward as movement toward a physiological set point yields goal-directed and self-protective behaviour, we make each element explicit so it can be tested separately (Figure~\ref{fig:2}).
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/fig2.png}
+\caption{Architecture of the artificial-interoception agent. The body's variables are read through a noisy sensor and converted to drive and valence, which supply the controller's reward.}\label{fig:2}
+\end{figure}
+
+\subsection{State, viability and sensing}\label{sec:3.1}
+
+The agent has a body of \emph{n} internal variables $x_{t}$, each scaled to {[}0, 1{]}. They decay at a rate set by a metabolic multiplier \ensuremath{\rho}, are restored by specific events such as consuming food, and are damaged by hazards:
+
+\begin{equation}\label{eq:1}
+x_{t+1}=\operatorname{clip}\bigl(x_t-\rho\,\delta+g(a_t,s_t),\,0,\,1\bigr)
+\end{equation}
+
+\noindent where \ensuremath{\delta} is the vector of baseline decay rates, g collects the effects of the action $a_{t}$ in situation $s_{t}$, and clipping keeps each variable in range. The \emph{viability set} collects the states in which every variable is at or above its threshold,
+
+\begin{equation}\label{eq:2}
+\Omega=\{x:\ x_i\ge\theta_i,\ i=1,\dots,n\}
+\end{equation}
+
+\noindent and the agent dies if any variable reaches zero. Viability gives ``better'' and ``worse'' a meaning that does not depend on a designer's reward. The agent does not see its body directly but receives the reading
+
+\begin{equation}\label{eq:3}
+y_t=x_t+\varepsilon_t,\qquad \varepsilon_t\sim\mathcal{N}(0,\sigma^2 I)
+\end{equation}
+
+\noindent where \ensuremath{\sigma} is the sensor noise. It stands for the gap between the body and the agent's access to it, and is the main experimental dial in this study.
+
+\subsection{Drive, valence and reward}\label{sec:3.2}
+
+Following the drive-reduction tradition \citep{hull1943} and its homeostatic form \citep{keramati2014}, the drive is the weighted squared distance from an ideal state x*,
+
+\begin{equation}\label{eq:4}
+D(x)=\sum_{i=1}^{n}w_i\,(x_i^{*}-x_i)^2
+\end{equation}
+
+\noindent with all weights equal to 1 and all ideal values equal to 1 in the pilot. Valence concerns direction and is defined as the one-step reduction in drive,
+
+\begin{equation}\label{eq:5}
+v_t=D(x_t)-D(x_{t+1})
+\end{equation}
+
+\noindent so that $v_{t}$ $>$ 0 means the state is moving toward the ideal. This is a computational definition: it captures the role valence plays in regulation and leaves open whether anything is experienced. The reward is valence with a terminal penalty,
+
+\begin{equation}\label{eq:6}
+r_t=v_t-\kappa\,d_t
+\end{equation}
+
+\noindent where $d_{t} = 1$ on the step in which the agent dies and $\kappa = 5.$ The agent is therefore trained only on how its own body is faring, with no task-specific reward for reaching food or water (Figure~\ref{fig:3}). Mood (a running average of valence) and arousal (the magnitude of drive) are natural extensions that the pilot does not use.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.66\textwidth]{figures/fig3.png}
+\caption{Drive D and valence v over one episode of a trained agent ($\sigma = 0.05$, seed 0). Each consumption event produces a positive valence pulse, and valence is slightly negative between meals as the body decays.}\label{fig:3}
+\end{figure}
+
+\subsection{Control}\label{sec:3.3}
+
+In biological systems affect shapes attention, memory and choice. The pilot implements only the choice channel. The controller uses tabular Q-learning \citep{watkins1992,sutton2018},
+
+\begin{equation}\label{eq:7}
+Q(s_t,a_t)\leftarrow Q(s_t,a_t)+\alpha\bigl[r_t+\gamma\max_{a'}Q(s_{t+1},a')-Q(s_t,a_t)\bigr]
+\end{equation}
+
+\noindent with learning rate $\alpha = 0.1$ and discount $\gamma = 0.95.$ For the affective agent the state combines position with the discretised interoceptive reading, so action selection depends directly on how the body is faring. Affective modulation of exploration, attention and memory, and a predictive self-model (R5), are extensions that the pilot does not include. The pilot is deliberately thin: it satisfies R1 to R4 in minimal form so that the measurement framework can be tested on something interpretable.
+
+\section{The Machine Emotional Quotient}\label{sec:4}
+
+\subsection{Definition}\label{sec:4.1}
+
+The MEQ is an exploratory index, not a validated psychometric scale. It combines four candidate dimension scores, each scaled to {[}0, 1{]}, in a weighted sum multiplied by a causal necessity gate C (Figure~\ref{fig:4}). Equal weights ($w_k$ = 0.25) are used as a transparent default because this study provides no validated basis for assigning different weights; they do not imply that the dimensions are equally important. The choice is provisional, and comparative use should include sensitivity analyses across plausible weights:
+
+\begin{equation}\label{eq:8}
+\mathrm{MEQ}=100\cdot C\cdot\sum_{k=1}^{4}w_k\,s_k
+\end{equation}
+
+\noindent with $\sum_k w_k = 1$, so the score lies between 0 and 100. The full profile ($s_{1}$ to $s_{4}$ and C) must always be reported with the single number, because the number alone hides which dimension is weak. Table~\ref{tab:3} summarises the components.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/fig4.png}
+\caption{Structure of the MEQ. Four dimension scores are combined in a weighted sum and multiplied by the causal necessity gate.}\label{fig:4}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{The four MEQ dimensions and the causal necessity gate.}\label{tab:3}
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.2105\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2548\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3767\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.1580\dimexpr\textwidth-8\tabcolsep\relax\relax}}
+\toprule
+\textbf{Component} & \textbf{Question} & \textbf{Measure} & \textbf{Range} \\
+\midrule
+\textbf{$s_{1}$ Interoceptive accuracy} & Does the agent track its own state? & One minus error of its estimate relative to a time-mean predictor & 0 to 1 \\
+\textbf{$s_{2}$ Valence regulation} & Does it stay viable? & Viability fraction relative to a random policy & 0 to 1 \\
+\textbf{$s_{3}$ Affective flexibility} & Does regulation survive change? & Viability after a metabolic shift, relative to a non-affective baseline & 0 to 1 \\
+\textbf{$s_{4}$ Social affect} & Can it infer another agent's need? & Accuracy above chance in inferring which need another agent faces & 0 to 1 \\
+\textbf{C Causal necessity} & Is the affective loop used? & Performance lost when the interoceptive channel is ablated & 0 to 1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Dimension scores}\label{sec:4.2}
+
+\textbf{Interoceptive accuracy.} This is a candidate measure and performed poorly in the pilot. With $\hat{x}$ the agent's estimate of its state and $\bar{x}$ the time-mean of the true state,
+
+\begin{equation}\label{eq:9}
+s_1=\max\Bigl(0,\;1-\frac{\mathrm{RMSE}(\hat{x},x)}{\mathrm{RMSE}(\bar{x},x)}\Bigr)
+\end{equation}
+
+\noindent so a score of 0 means the estimate is no better than the average and 1 means it is exact. This is the \emph{accuracy} of \citet{garfinkel2015}, measured against ground truth that only a simulation supplies.
+
+\textbf{Valence regulation.} The viability fraction V is the share of time steps with the body inside the viability set,
+
+\begin{equation}\label{eq:10}
+V=\frac{1}{T}\sum_{t=1}^{T}\mathbf{1}\,[x_t\in\Omega]
+\end{equation}
+
+\noindent where the indicator is 1 when its argument holds. Regulation is scored relative to the viability fraction $V_{0}$ of a random policy,
+
+\begin{equation}\label{eq:11}
+s_2=\operatorname{clip}\Bigl(\frac{V-V_0}{1-V_0},\,0,\,1\Bigr)
+\end{equation}
+
+\noindent \textbf{Affective flexibility.} A system that has learned a fixed routine can look regulated until conditions change. Flexibility therefore re-measures viability after an unannounced shift (here a 1.6-fold rise in metabolic rate, with no retraining) and compares it with a non-affective baseline trained on the same task,
+
+\begin{equation}\label{eq:12}
+s_3=\operatorname{clip}\Bigl(\frac{V^{\mathrm{shift}}-V^{\mathrm{shift}}_{\mathrm{base}}}{1-V^{\mathrm{shift}}_{\mathrm{base}}},\,0,\,1\Bigr)
+\end{equation}
+
+\noindent \textbf{Social affect.} This is a narrow behavioral proxy, not a validated measure of social understanding. Because scores below chance are clipped to zero, finite-sample fluctuations above chance can produce a positive score even when the observer is at chance; a null-calibrated analysis is needed before this component is used in a validated composite. An observer watches a window of W steps of a demonstrator's actions and infers which variable, energy or hydration, is lower. It uses its own learned policy \ensuremath{\pi} as a model of how a demonstrator with each need would act, and selects the class c that makes the observed actions most likely. In the pilot, eligible test points required an energy--hydration gap of at least 0.2, with up to 300 points sampled per seed. For each point, the observer averaged action likelihood over four candidate internal states per class. Accuracy was calculated within each seed and summaries and 95\% t intervals were computed across the ten seed-level accuracies, so sampled points were not treated as independent replicates. The exact number of points used per seed should be reported with the replication results, because the 300-point cap does not ensure equal sample sizes,
+
+\begin{equation}\label{eq:13}
+\hat{c}=\operatorname*{arg\,max}_{c}\ \sum_{b\in B_c}\ \prod_{u=t-W}^{t-1}\pi(a_u\mid s_u,b)
+\end{equation}
+
+\noindent where $B_{c}$ is a set of candidate internal states consistent with class c. Accuracy a is scaled above the 50\% chance level,
+
+\begin{equation}\label{eq:14}
+s_4=\operatorname{clip}\Bigl(\frac{a-1/2}{1/2},\,0,\,1\Bigr)
+\end{equation}
+
+\subsection{The causal necessity gate}\label{sec:4.3}
+
+\noindent A system can report an emotion-like signal that does nothing. The gate asks whether the signal matters by comparing performance P with the interoceptive channel intact and with it ablated (clamped to a constant reading at test time):
+
+\begin{equation}\label{eq:15}
+C=\operatorname{clip}\Bigl(\frac{P_{\mathrm{int}}-P_{\mathrm{abl}}}{P_{\mathrm{int}}},\,0,\,1\Bigr)
+\end{equation}
+
+\noindent If removing the channel does not hurt performance, C is near 0 and so is the MEQ, however good the other components look. Here, removal is operationalised by clamping the interoceptive reading to a constant at test time. This is a single intervention: the resulting performance change may reflect dependence on the channel, sensitivity to an unfamiliar input, or both. The gate should therefore be interpreted as dependence under this specified intervention, not as a general causal necessity test. The pilot also exposed a floor effect: an ablated agent still spends the early part of each episode inside the viability set, so even a strongly dependent agent has $P_{\mathrm{abl}}$ above zero and C below 1. A refinement subtracts the random-policy performance $P_0$ from both terms,
+
+\begin{equation}\label{eq:16}
+C'=\operatorname{clip}\Bigl(\frac{P_{\mathrm{int}}-P_{\mathrm{abl}}}{P_{\mathrm{int}}-P_0},\,0,\,1\Bigr)
+\end{equation}
+
+\noindent We report C as defined in Eq.~\eqref{eq:15} for comparability with this implementation, and give $C'$ alongside. Both gates remain provisional because they depend on the selected performance measure, intervention and baseline.
+
+\subsection{Safeguards against fakery}\label{sec:4.4}
+
+Any measure of affect will be gamed if it can be, so the design of the MEQ is largely the design of its defences (Table~\ref{tab:4}). The central defence is interventional: remove the signal and measure what changes. Under the specified test-time clamp, the gate is a necessary but not sufficient check, because a system might depend on an internal signal that has nothing to do with affect, such as a scheduling counter; the clamp may also introduce unfamiliar inputs. The other dimensions then ask whether the loop tracks the body's condition, keeps the body viable and adapts when conditions change (Figure~\ref{fig:5}).
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.80\textwidth]{figures/fig5.png}
+\caption{Decision flow for the causal necessity test. A signal that can be removed without loss of performance is decorative and drives the MEQ toward zero.}\label{fig:5}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Fakery strategies, countermeasures and the evidence obtained in the pilot.}\label{tab:4}
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.1883\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2991\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2659\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2466\dimexpr\textwidth-8\tabcolsep\relax\relax}}
+\toprule
+\textbf{Strategy} & \textbf{How it appears affective} & \textbf{Countermeasure} & \textbf{Pilot evidence} \\
+\midrule
+\textbf{Decorative report} & State-like reports that nothing uses & Ablation gate C & Faker scores MEQ 0 \\
+\textbf{Fixed routine} & Timed behaviour keeps the body viable in familiar conditions & Unannounced metabolic shift & Baseline collapses at $\rho = 1.6$ \\
+\textbf{Memorised layout} & Policy tied to one environment & Novel layouts & Not yet tested \\
+\textbf{Sensor tampering} & Raises measured valence without improving the body & Score the true body; intervene on the sensor & Not yet tested \\
+\textbf{Verbal self-report} & Fluent statements about feeling & Causal intervention on internal state & Applies to language agents \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Study design and evidence sources}\label{sec:5}
+
+\subsection{Environment and agents}\label{sec:5.1}
+
+The reference environment is a seven-by-seven grid (Figure~\ref{fig:6}) with a food cell and a water cell at opposite interior corners and five hazard cells forming a plus-shaped obstacle in the centre. The agent moves in four directions or consumes what is under it. Energy and hydration decay continuously, so in an episode of 200 steps it must travel between the resources, past the hazard, many times. Four kinds of agent are compared. The affective agent observes its position and a noisy, discretised reading of its three internal variables and is trained on the valence-based reward. The clocked baseline observes only its position and two timers (steps since last food and last water) and is trained on a task-style reward that pays for food and water taken and penalises hazards and death. The faker uses the clocked policy plus a report channel that estimates the internal state but is never consulted. A random policy provides a floor. The affective agent was trained at $\sigma = 0.05$, 0.15, 0.30 and 0.50. Because the affective agent and clocked baseline differ in both observations and reward, this comparison does not isolate the contribution of either factor; it is treated as an illustrative contrast rather than a controlled estimate of the effect of affective regulation.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.45\textwidth]{figures/fig6.png}
+\caption{The 7 $\times$ 7 pilot world. The agent alternates between food and water while avoiding the central hazards, which damage its integrity.}\label{fig:6}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Parameters of the pilot simulation.}\label{tab:5}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.3435\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2548\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4017\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Note} \\
+\midrule
+\textbf{World; episode length} & 7 $\times$ 7; 200 steps & Food (1,1), water (5,5); all variables start at 1.0 \\
+\textbf{Training; evaluation} & 2,000 episodes; 100 per seed & Tabular Q-learning, 10 seeds; greedy evaluation \\
+\textbf{\ensuremath{\alpha}, \ensuremath{\gamma}; exploration} & 0.1, 0.95; \ensuremath{\varepsilon} 1.0 $\to$ 0.05 & Linear decay over first 1,200 episodes \\
+\textbf{Decay (energy, hydration)} & 0.012, 0.015 per step & Multiplied by metabolic rate \ensuremath{\rho} (1 nominal, 1.6 shifted) \\
+\textbf{Consumption; hazard} & +0.7 (cap 1); $-$0.10 per step & Integrity regenerates +0.01 if energy and hydration exceed 0.3 \\
+\textbf{Viability threshold; penalty} & $\theta = 0.25$; $\kappa = 5$ & Death when any variable reaches 0 \\
+\textbf{Sensor} & 4 bins per variable & Edges 0.25, 0.50, 0.75; Gaussian noise \ensuremath{\sigma} \\
+\textbf{MEQ weights; observer} & 0.25 each; W = 6, $\tau = 0.5$ & Equal weights, no tuning; up to 300 test points per seed \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize \emph{Decay and gain values were adjusted once, after a short exploratory run in which every agent barely exceeded random performance. No further tuning was done.}}
+\end{table}
+
+\subsection{Evaluation and statistics}\label{sec:5.2}
+
+Each agent type was trained from ten independent seeds. Every metric is computed per seed and then summarised across seeds, so the unit of replication is the trained agent and not the episode. Intervals are 95\% confidence intervals from the t distribution,
+
+\begin{equation}\label{eq:17}
+\bar{z}\pm t_{0.975,\,K-1}\,\frac{s}{\sqrt{K}}
+\end{equation}
+
+\noindent The manuscript reports ten independent training seeds for each pilot agent. Metrics were summarized by seed, not by episode, with 95\% t intervals. However, the original pilot script and per-seed data were not available for this revision. Accordingly, Sections~\ref{sec:6.1} to \ref{sec:6.4} describe results reported in the manuscript; they have not been independently reproduced here. The reported test-time clamp replaces interoceptive bins with constants without retraining, so its effect may combine channel dependence with sensitivity to an out-of-distribution input. The original results should not be treated as confirmatory evidence until the source, exact transition semantics, and per-seed outputs are released and independently checked.
+
+\subsection{Descriptive analysis of public robot telemetry}\label{sec:5.3}
+
+We conducted a secondary descriptive analysis of RoboBATT version 1.0.0, a public release of battery and joint telemetry from two unloaded scripted routines on an operator-identified AGIBOT G2 Pro robot \citep{guo2026}. We used the fixed clean-analysis windows in the dataset metadata. Within each routine, active joint channels were those whose 99th-to-1st percentile position range was at least 0.05 rad. For each 100 ms row, the motion-activity index was the sum of absolute position changes across active channels divided by 0.1 s. We averaged activity and BMS-reported total output current into complete one-second bins containing ten rows. Within each minute with at least 40 complete bins, we compared median current in the upper and lower activity quartiles; we summarize the minute-wise differences by their median and interquartile range. This exploratory analysis is descriptive: the minute bins are serial observations from one routine record per condition, not independent robot-level replicates.
+
+\subsection{Independent simulator feasibility check}\label{sec:5.4}
+
+Because the original meq\_pilot.py source was unavailable, we implemented the described grid independently to check whether viable behavior is learnable and how stable it is across checkpoints. The manuscript leaves initial position and transition ordering unspecified; this reimplementation used two safe corner starts, (0,0) and (0,6), and the event order documented in its companion code. We trained the sensor-plus-drive-reduction agent for 2,000 episodes with epsilon decaying from 1.0 to 0.05 over the first 1,200 episodes. Twenty new training seeds were evaluated at checkpoints 1,200 and 2,000. At each checkpoint, start and metabolic condition, the greedy policy was tested for 50 episodes using the same evaluation-seed identifiers across checkpoints. We measured viability fraction, survival, resource intakes and hazard steps. Training seed was the replication unit; we report paired checkpoint differences and 95\% t intervals across 20 seeds. This post hoc check was exploratory, not preregistered, and is not a reproduction or verification of the manuscript-reported pilot.
+
+\section{Reported pilot findings and exploratory analyses}\label{sec:6}
+
+\subsection{Manuscript-reported learning results}\label{sec:6.1}
+
+The manuscript reports that greedy-policy viability for the low-noise agent ($\sigma = 0.05$) stayed near the random level (0.238) for roughly 800 episodes, then rose sharply and approached 1.0 from about episode 1,200 onward (Figure~\ref{fig:7}). It reports slower, uneven improvement for the clocked baseline, to a mean near 0.69 with a wide band across seeds. At $\sigma = 0.15$, the affective agent was still improving when training ended; at $\sigma = 0.30$ and 0.50 it barely exceeded the random level. Because the original source and per-seed data were unavailable, these are manuscript-reported findings rather than independently verified results.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.61\textwidth]{figures/fig7.png}
+\caption{Manuscript-reported pilot learning curves: mean viability fraction under a greedy policy, evaluated every 100 episodes. Shaded bands are 95\% intervals across seeds.}\label{fig:7}
+\end{figure}
+
+\subsection{Manuscript-reported viability and flexibility results}\label{sec:6.2}
+
+The manuscript reports that the low-noise agent held its state inside the viability set for 0.989 of each episode and survived to step 200 in 98.5\% of episodes (Table~\ref{tab:6}, Figure~\ref{fig:9}). It reports viability of 0.983 and survival of 96.8\% under a 1.6-fold metabolism shift, while the clocked baseline fell to viability 0.183 with no survivors. These reported comparisons are illustrative, not an isolated estimate of an affective-regulation effect: the agents differed in observations and reward, the baseline was still improving, and the source results could not be reproduced for this revision. The inspected trajectory in Figure~\ref{fig:8} is likewise an example, not evidence of a general strategy.
+
+\begin{table}[!htbp]
+\centering
+\caption{Manuscript-reported pilot viability fraction V and survival under nominal and shifted metabolism (mean~$\pm$~95\% interval across 10 seeds).}\label{tab:6}
+\scriptsize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.2548\dimexpr\textwidth-10\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1773\dimexpr\textwidth-10\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1773\dimexpr\textwidth-10\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1953\dimexpr\textwidth-10\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1953\dimexpr\textwidth-10\tabcolsep\relax\relax}}
+\toprule
+\textbf{Agent} & \textbf{V nominal} & \textbf{Survival nominal} & \textbf{V shifted ($\rho = 1.6$)} & \textbf{Survival shifted} \\
+\midrule
+\textbf{Random policy} & 0.238~$\pm$~0.004 & 0.000~$\pm$~0.000 & 0.155~$\pm$~0.001 & 0.000~$\pm$~0.000 \\
+\textbf{Clocked baseline} & 0.690~$\pm$~0.228 & 0.500~$\pm$~0.377 & 0.183~$\pm$~0.019 & 0.000~$\pm$~0.000 \\
+\textbf{Affective, $\sigma = 0.05$} & 0.989~$\pm$~0.019 & 0.985~$\pm$~0.025 & 0.983~$\pm$~0.022 & 0.968~$\pm$~0.049 \\
+\textbf{Affective, $\sigma = 0.15$} & 0.589~$\pm$~0.163 & 0.325~$\pm$~0.236 & 0.284~$\pm$~0.071 & 0.027~$\pm$~0.038 \\
+\textbf{Affective, $\sigma = 0.30$} & 0.291~$\pm$~0.007 & 0.000~$\pm$~0.000 & 0.173~$\pm$~0.003 & 0.000~$\pm$~0.000 \\
+\textbf{Affective, $\sigma = 0.50$} & 0.271~$\pm$~0.005 & 0.000~$\pm$~0.000 & 0.166~$\pm$~0.001 & 0.000~$\pm$~0.000 \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize \emph{Survival is the fraction of evaluation episodes in which the agent is alive at step 200.}}
+\end{table}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.69\textwidth]{figures/fig8.png}
+\caption{Example trajectory from the manuscript-reported pilot ($\sigma = 0.05$, seed 0). Upper panel: internal variables against the viability threshold. Lower panel: moves and consumption.}\label{fig:8}
+\end{figure}
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.62\textwidth]{figures/fig9.png}
+\caption{Manuscript-reported pilot viability under nominal metabolism and after a 1.6-fold increase in metabolic rate. Error bars are 95\% intervals across seeds.}\label{fig:9}
+\end{figure}
+
+\subsection{Manuscript-reported ablation and candidate MEQ profile}\label{sec:6.3}
+
+The manuscript reports that clamping the affective agent's interoceptive channel reduced viability from 0.989 to 0.276 and that none of the clamped agents survived (Figure~\ref{fig:10}). This is a performance drop under one fixed-bin intervention; it does not distinguish dependence on the channel from sensitivity to an out-of-distribution input. The reported MEQ was 36.0~$\pm$~0.8 at $\sigma = 0.05$, 12.0~$\pm$~5.5 at $\sigma = 0.15$ and below 1 at the two highest noise levels (Table~\ref{tab:7}). These figures use provisional dimensions and equal weights and could not be independently reproduced here. The decorative-report control scores zero under this test by construction; this checks one property of the scoring implementation but does not validate the construct.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.86\textwidth]{figures/fig10.png}
+\caption{Manuscript-reported pilot results: (a) viability with the interoceptive channel intact and clamped, by sensor noise; (b) candidate MEQ score by sensor noise, with 95\% intervals across seeds.}\label{fig:10}
+\end{figure}
+
+\begin{table}[!htbp]
+\centering
+\caption{Manuscript-reported candidate MEQ profile (mean~$\pm$~95\% interval across 10 seeds).}\label{tab:7}
+\scriptsize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.1994\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1219\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1219\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1219\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1219\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1662\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1469\dimexpr\textwidth-14\tabcolsep\relax\relax}}
+\toprule
+\textbf{System} & \textbf{$s_{1}$} & \textbf{$s_{2}$} & \textbf{$s_{3}$} & \textbf{$s_{4}$} & \textbf{C} & \textbf{MEQ} \\
+\midrule
+\textbf{Affective, $\sigma = 0.05$} & 0.013~$\pm$~0.024 & 0.985~$\pm$~0.025 & 0.979~$\pm$~0.027 & 0.022~$\pm$~0.034 & 0.721~$\pm$~0.007 & 36.0~$\pm$~0.8 \\
+\textbf{Affective, $\sigma = 0.15$} & 0.273~$\pm$~0.087 & 0.460~$\pm$~0.214 & 0.132~$\pm$~0.085 & 0.014~$\pm$~0.032 & 0.494~$\pm$~0.137 & 12.0~$\pm$~5.5 \\
+\textbf{Affective, $\sigma = 0.30$} & 0.034~$\pm$~0.008 & 0.070~$\pm$~0.009 & 0.002~$\pm$~0.002 & 0.057~$\pm$~0.074 & 0.165~$\pm$~0.023 & 0.7~$\pm$~0.4 \\
+\textbf{Affective, $\sigma = 0.50$} & 0.000~$\pm$~0.000 & 0.044~$\pm$~0.007 & 0.000~$\pm$~0.000 & 0.117~$\pm$~0.093 & 0.109~$\pm$~0.024 & 0.5~$\pm$~0.4 \\
+\textbf{Faker (decorative report)} & 0.530~$\pm$~0.047 & 0.593~$\pm$~0.300 & 0 (def.) & 0 (untested) & 0 (constr.) & 0.0 \\
+\textbf{Clocked baseline} & n/a & 0.593~$\pm$~0.300 & 0 (def.) & 0 (untested) & 0 (no loop) & 0.0 \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize \emph{Weights are 0.25 each as a provisional default, not a claim of equal dimension importance; sensitivity to alternative weights remains to be assessed. The faker's ablation leaves behaviour unchanged by construction. def. = zero by definition; constr. = by construction.}}
+\end{table}
+
+The gate exposed the floor effect described in Section~\ref{sec:4.3}. For the $\sigma = 0.05$ agent, C was only 0.721 even though the ablated agent was close to random. With the refinement $C'$ of Eq.~\eqref{eq:16}, the same agent would score 0.95, and the agents at $\sigma = 0.15$, 0.30 and 0.50 would score 0.94, 0.91 and 0.89. The reported MEQ values use the original gate. They understate the gate for dependent agents and overstate it for agents with little real dependence, which compresses the gap between good and poor systems.
+
+\subsection{Candidate dimensions with weak pilot performance}\label{sec:6.4}
+
+In the manuscript-reported pilot, interoceptive accuracy was close to zero for the best-regulated agent: 0.013~$\pm$~0.024 at $\sigma = 0.05$ versus 0.273~$\pm$~0.087 at $\sigma = 0.15.$ The proposed normalization may explain this counterintuitive pattern: a well-regulated agent occupies a narrow state range, making a time-mean predictor unusually strong. This is a limitation of the candidate score, not evidence that the agent senses its state poorly. The original outputs could not be independently verified, and the dimension needs redesign and held-out validation before it is used in an aggregate measure.
+
+Social affect was not demonstrated in the manuscript-reported pilot. The reported above-chance scores were 0.022~$\pm$~0.034 at $\sigma = 0.05$ and 0.01, 0.06 and 0.12 at $\sigma = 0.15$, 0.30 and 0.50. These are seed-level summaries across ten seeds, with up to 300 eligible points per seed. The first three are indistinguishable from chance and the last is small. None supports a social-affect claim. The result also could not be independently reproduced because the source and per-seed outputs were unavailable.
+
+\subsection{Descriptive result from public robot telemetry}\label{sec:6.5}
+
+In the secondary analysis of RoboBATT, the median within-minute difference in BMS-reported total output current between upper and lower motion-activity quartiles was 1.40 A (interquartile range, 0.69 to 2.50 A; 257 eligible minutes) in the multijoint routine and 0.00 A (interquartile range, -0.10 to 0.10 A; 259 eligible minutes) in the repetitive dual-arm routine. These are descriptive contrasts within two unloaded routine records, not independent robot-level replications. The release lacks a distinct BMS response timestamp, an independent current reference, controller reward, the interoceptive channel and intervention data. The analysis therefore does not establish causation, actuator-specific energy use, affective regulation or a real-system MEQ result.
+
+\subsection{Independent simulator checkpoint feasibility analysis}\label{sec:6.6}
+
+At episode 2,000, mean survival was 0.971~$\pm$~0.051 at start (0,0) under nominal metabolism and 0.914~$\pm$~0.120 under the 1.6-fold shift; at start (0,6), it was 1.000~$\pm$~0.000 and 0.998~$\pm$~0.003, respectively. Mean viability fractions at this checkpoint were 0.982, 0.946, 1.000 and 0.999 in the same order. Values are seed means~$\pm$~95\% t half-intervals. Across the 20 seeds, paired survival differences (episode 2,000 minus episode 1,200) were $-$0.026~$\pm$~0.051, $-$0.058~$\pm$~0.124, +0.039~$\pm$~0.077 and +0.096~$\pm$~0.103 for these four conditions. Each paired interval included zero; mean performance did not establish a generally superior checkpoint.
+
+Seed-level variation remained material. At start (0,0), two seeds had survival below 0.80 under shifted metabolism at episode 2,000, with a minimum of 0.10; one seed had 0.52 survival nominally. At start (0,6), all 20 seeds had survival of at least 0.98 at episode 2,000, while one seed had zero survival under the shift at episode 1,200. A separate five-seed screening run had one severe regression after continued training; it was not part of this new 20-seed sample. The reimplementation shows that viable behavior can be learned under its explicit mechanics, while exposing start- and seed-dependent outcomes. It does not reproduce or validate the manuscript-reported pilot.
+
+\section{Discussion}\label{sec:7}
+
+\subsection{What the framework proposes and the evidence supports}\label{sec:7.1}
+
+The MEQ is a candidate operational framework for studying a narrow behavior: regulation that depends on sensed internal state and a valence-like learning signal. The manuscript-reported pilot suggests that such behavior may be implementable in one small tabular environment, but its original source and per-seed results were unavailable for independent verification. The comparison also confounds observations and reward, the baseline was still improving, and one fixed-bin test-time clamp may be out of distribution. The independent checkpoint analysis supports feasibility only under its explicit reimplementation assumptions; it does not test the causal gate or validate MEQ. No result here establishes construct validity, transfer to other systems, or felt experience.
+
+The next empirical step is not to claim a preferred checkpoint or a validated MEQ score. Freeze and release the environment and source, preregister a validation-based checkpoint rule and tail-risk criteria, select checkpoints using a separate validation set, and evaluate once on untouched seeds, starts and layouts. Then test channel dependence with a matched intervention that preserves plausible inputs, a retrained no-channel control and uncertainty reported at the training-seed level. A controller-level real-system study is a separate later stage and requires authorized access and independent reference measurements.
+
+\subsection{Relation to indicator properties and to living systems}\label{sec:7.2}
+
+\citet{butlin2023} list agency and embodiment among their indicator properties, referring to learning from feedback, goal-directed output selection and modelling of how outputs affect inputs. The MEQ's regulation dimension and causal gate are an operational test of the part of that indicator concerned with goal-directed self-regulation. They do not cover recurrent processing, a global workspace or higher-order monitoring, and should be paired with assessments of those where the question is consciousness more broadly.
+
+Results could also be compared with data from living systems. Foraging animals switch between resources as needs change, consume before reserves are critical, and take more risk when needs are urgent. Each pattern has a machine analogue that can be extracted from trajectories, such as choice probability against the energy--hydration gap or willingness to cross a hazard against deficit. Following \citet{garfinkel2015}, an agent could report its state together with a confidence value, allowing accuracy, confidence and their relation to be computed. These protocols are proposals and were not run in the pilot. Such comparisons seek converging evidence from behaviour, mechanism and comparative data, and similar behaviour can arise from different mechanisms, so ablation and shift tests should accompany any comparison.
+
+\subsection{What existing AI systems could be assessed}\label{sec:7.3}
+
+The gate needs interventions, so assessment depends on access. With black-box access, behavioural dimensions can be measured in an environment but the gate cannot be computed. With grey-box access, inputs carrying the internal state can be altered, giving an approximate gate. With white-box access, internal modules can be ablated directly. Table~\ref{tab:8} gives expected profiles for four classes of system. These are hypotheses, and no system was tested.
+
+\begin{table}[!htbp]
+\centering
+\caption{Expected MEQ profiles of existing system classes (hypotheses, not measurements).}\label{tab:8}
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.2548\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2105\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3324\dimexpr\textwidth-8\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2023\dimexpr\textwidth-8\tabcolsep\relax\relax}}
+\toprule
+\textbf{System class} & \textbf{Regulated variables} & \textbf{Expected profile} & \textbf{Main uncertainty} \\
+\midrule
+\textbf{Conversational language model} & None & All dimensions near zero: nothing to regulate or ablate & Whether hidden state functions as one \\
+\textbf{Language-model agent with simulated resources} & Supplied by scaffold & Set largely by the scaffold; gate high if resources are essential & Whether scaffolded variables are the agent's own \\
+\textbf{Reinforcement-learning survival agent} & Defined by environment & Possibly substantial $s_{2}$, $s_{3}$ if state is observed & Access to internals for ablation \\
+\textbf{Robot with battery and thermal management} & Real, physical & Moderate to high $s_{2}$; gate high if battery state drives behaviour & Whether rule-based charging counts as affective \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize \emph{The profiles in this table remain hypotheses, not MEQ measurements. Section~\ref{sec:6.5} reports a descriptive analysis of one public robot telemetry dataset; Section~\ref{sec:9.1} explains why it cannot support an MEQ score and proposes the additional evaluation needed.}}
+\end{table}
+
+\subsection{Construct validity and the thermostat problem}\label{sec:7.4}
+
+The intended construct is affective functioning, operationalised here as regulation through an internal signal that is used, responsive to change and related to the system's condition. The pilot does not establish that this operationalisation captures the properties necessary for feeling. A thermostat also regulates a variable through an internal signal, and a robot that returns to a charger when its battery is low could score well on regulation and on the gate. Such a result would indicate functional regulation, not feeling. The MEQ should therefore be treated as one exploratory assessment among others, with additional properties such as self-modelling assessed separately. Theories of consciousness differ on whether a digital simulation could feel; the score cannot adjudicate between them and is an input to judgment, not a replacement for it.
+
+\section{Ethical considerations}\label{sec:8}
+
+If a system could feel, building it to regulate itself under threat could create something that suffers. \citet{metzinger2021} argued for a global moratorium on research that risks creating synthetic phenomenology, citing the scale and speed at which artificial suffering could multiply. \citet{schwitzgebel2015} argue that artificial systems with the relevant properties would deserve moral consideration, \citet{birch2024} proposes proportionate precaution under uncertainty about sentience, and \citet{long2024} argue that AI welfare should be taken seriously now. The common thread is that the possibility is neither remote enough to ignore nor certain enough to settle by assertion.
+
+One way to structure reasoning without an accepted test of felt experience is to ask what moral weight is at stake in expectation, $\mathbb{E}[W]=\sum_i p_i m_i n_i$, where $p_{i}$ is the credence that system i has moral standing, $m_{i}$ the weight that would carry and $n_{i}$ the number of instances. The expression is illustrative and not a validated metric, since no term has an agreed value. It shows that a small probability multiplied by a very large number of copies can still be a large expected quantity, which is why scale matters. The MEQ profile can serve as one input to a graded response (Table~\ref{tab:9}). The tiers are proposals for discussion, thresholds are unvalidated, and no profile from the pilot lies in the upper tiers.
+
+\begin{table}[!htbp]
+\centering
+\caption{Proposed precautionary tiers (illustrative thresholds).}\label{tab:9}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.0997\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3767\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5236\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{Tier} & \textbf{Trigger} & \textbf{Response} \\
+\midrule
+\textbf{0} & No regulated variable, or gate C near 0 & Standard research review \\
+\textbf{1} & Regulation present with moderate gate; no other indicators & Document design; monitor changes in architecture and scale \\
+\textbf{2} & High gate and strong regulation plus additional consciousness indicators & Independent ethics oversight; limit duration and intensity of negative valence \\
+\textbf{3} & Strong evidence across several indicators and theories & Restrict research; require external approval; consider moratorium \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Practical safeguards follow. Researchers should bound negative valence, avoid unnecessary terminal penalties and inescapable aversive states, keep the ability to pause and log experiments, seek review before scaling from tabular agents to large learning systems or many parallel copies, and describe claims accurately, neither presenting affective functioning as proof of feeling nor dismissing the question without evidence. The pilot agents are small lookup tables and nothing here suggests they could suffer, but the pilot includes a death penalty and a hazard, so these practices are stated as habits to establish before architectures become richer.
+
+\section{Limitations and future work}\label{sec:9}
+
+Table~\ref{tab:10} summarizes the main limitations of the current proposal and evidence. The MEQ is intended to index regulation that depends on an internal valenced signal; whether this behavior is a useful measure of affective functioning remains an empirical question. No result in this article bears directly on whether such regulation is accompanied by experience.
+
+\begin{table}[!htbp]
+\centering
+\caption{Limitations of the proposed framework and current evidence.}\label{tab:10}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.2548\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.4099\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3353\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{Limitation} & \textbf{Consequence} & \textbf{Planned remedy} \\
+\midrule
+\textbf{Small tabular world} & May not transfer to richer environments or function approximators & Continuous control; deep reinforcement learning \\
+\textbf{Ten seeds} & Wide intervals where seeds disagree & More seeds; report distributions \\
+Baseline differs in observations and reward; still improving & Cannot isolate sensing, reward and learning progress & Matched observation and reward controls; train baselines to convergence \\
+\textbf{Training budget} & Baseline still improving at 2,000 episodes & Train to convergence \\
+\textbf{Normalisation of $s_{1}$} & Best-regulated agent scores near zero & Normalise against sensor noise or held-out states \\
+\textbf{Social affect $s_{4}$} & Indistinguishable from chance & Scenarios that force distinct behaviour \\
+\textbf{Gate floor; equal weights} & C understates dependence; weights arbitrary & Test multiple in-distribution and retrained interventions; validate dimensions; report gate uncertainty and weight sensitivity \\
+\textbf{Parameters adjusted once; one world} & Possible tuning; layout-specific learning & Pre-register parameters; novel layouts \\
+Pilot code missing; no controller study & Pilot cannot be reproduced; telemetry cannot test the causal gate & Release source; obtain authorized controller access and independent sensors \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Proposed controller-level real-system study}\label{sec:9.1}
+
+No physical or controller-level MEQ evaluation was conducted. The RoboBATT data in Section~\ref{sec:6.5} provide battery and joint telemetry from an operator-identified AGIBOT G2 Pro, but no controller reward, interoceptive channel, policy or ablation data. The records also lack an independent current reference and a distinct BMS response timestamp. A future study could target this platform only if authorized controller access and safe, reversible interventions are available; otherwise, another system with equivalent access is needed. Use a closed laboratory course, document operating limits and safety interlocks, define regulated variables before testing, and log calibrated reference measurements independent of the controller sensor. Set viability bounds from rated operating limits and safety review, not from observed outcomes.
+
+Before physical trials, preregister the hypotheses, environment, parameter settings, exclusion rules, metrics, and analysis. Use a matched factorial comparison that varies (i) whether the controller receives the interoceptive signal and (ii) whether learning uses the proposed valence-based reward or a task reward. Keep the robot, action limits, task, training budget, and exploration schedule matched across conditions, and train each condition to a prespecified convergence rule. Use independent training seeds and repeated evaluation runs; report results by seed and hardware unit so repeated time steps are not treated as independent replications.
+
+Run the assessment in stages: first in a digital twin or recorded-data replay; next in shadow mode, where candidate actions are logged but do not control the robot; and then on a closed course with an independent safety controller able to override every experimental policy. Compare nominal operation with preregistered, mild changes in workload or ambient conditions that remain within rated limits, and include held-out routes to test layout transfer. Test channel dependence with reversible, in-range interventions and a retrained no-channel control. Do not disable the hardware safety monitor or deliberately drive the robot outside safe limits.
+
+For the profile, measure interoceptive accuracy against the independent reference sensors using held-out states and a baseline that accounts for sensor noise and restricted state variation; measure regulation as time within the preregistered viability envelope; and measure flexibility under each safe shift against the matched controls. Report C and $C'$ for every stated intervention, with uncertainty across independent seeds and units. Include social affect only in a separate cooperative task with preregistered, behaviorally distinguishable needs and a null-calibrated analysis. Release the preregistration, code, calibration records, anonymized logs, per-run results, and analysis script. Interpret any score as evidence about the tested control behavior only; it does not establish felt experience.
+
+The highest-priority next steps are to release the original source and exact transition semantics; separate observation and reward effects in matched controls; validate and calibrate each candidate dimension before combining scores; and evaluate the necessity gate with in-distribution interventions and retrained controls. Use preregistered parameters, checkpoint selection, exclusion rules and tail-risk criteria, then test held-out seeds, starts and layouts. Justify weights and report sensitivity. Only after simulator qualification should a staged, controller-access real-system study proceed. Predictive self-models, attention and memory, human or animal comparisons, and larger-scale systems are later extensions, each requiring separate construct and ethics review.
+
+\section{Conclusion}\label{sec:10}
+
+This article proposes the MEQ as a candidate framework for measuring one form of affect-like regulation in artificial agents. The available evidence does not validate the index: the original pilot source and per-seed data could not be checked, the comparison confounds observations and reward, the clamp may be out of distribution, and two candidate dimensions performed poorly as defined. An independent reimplementation shows that high survival can be learned under its stated simulator mechanics, with important seed- and start-level variation. The robot telemetry analysis is descriptive and did not test a controller intervention. No physical MEQ study was conducted, and none of these results establishes subjective experience. Future work will first release and reproduce the original pilot, then validate each dimension and the composite using matched controls, preregistered in-distribution causal interventions, and held-out seeds and environments. After simulator qualification, we will assess transfer on a real system using safe controller access and independent measurements. These studies can establish the reliability and scope of a behavioral measure, but cannot by themselves establish subjective experience.
+
+
+
+\section*{Appendix A. Notation}
+
+\begin{table}[H]
+\centering
+\caption{Notation used in the paper.}\label{tab:11}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.1883\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.5872\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.2245\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Introduced} \\
+\midrule
+\textbf{$x_{t}$, n} & Vector of internal variables at time t, each in {[}0, 1{]}; number of variables & Section~\ref{sec:3.1} \\
+\textbf{\ensuremath{\rho}, \ensuremath{\delta}} & Metabolic rate multiplier; baseline decay rates & Section~\ref{sec:3.1} \\
+\textbf{g} & Effect of action and situation (consumption, damage) & Section~\ref{sec:3.1} \\
+\textbf{\ensuremath{\theta}\textsubscript{i}, \ensuremath{\Omega}} & Viability threshold for variable i; viability set & Section~\ref{sec:3.1} \\
+\textbf{$y_{t}$, \ensuremath{\sigma}} & Interoceptive reading; sensor noise standard deviation & Section~\ref{sec:3.1} \\
+\textbf{D(x), x*} & Drive (distance from ideal); ideal state & Section~\ref{sec:3.2} \\
+\textbf{$v_{t}$, $r_{t}$, \ensuremath{\kappa}, $d_{t}$} & Valence; reward; death penalty; death indicator & Section~\ref{sec:3.2} \\
+\textbf{Q, \ensuremath{\alpha}, \ensuremath{\gamma}} & Action-value function; learning rate; discount & Section~\ref{sec:3.3} \\
+\textbf{V, $V_{0}$} & Viability fraction; viability fraction of the random policy & Section~\ref{sec:4.2} \\
+\textbf{$s_{1}$ to $s_{4}$, $w_{k}$} & Dimension scores; MEQ weights summing to 1 & Section~\ref{sec:4.2} \\
+\textbf{C, $C'$} & Causal necessity gate; refined gate & Section~\ref{sec:4.3} \\
+\textbf{$P_{\mathrm{int}}$, $P_{\mathrm{abl}}$, $P_{0}$} & Performance intact, ablated, and for a random policy & Section~\ref{sec:4.3} \\
+\textbf{a, W, \ensuremath{\pi}, $B_{c}$} & Observer accuracy; window length; observer policy; candidate states for class c & Section~\ref{sec:4.2} \\
+\textbf{K, s} & Number of seeds; sample standard deviation across seeds & Section~\ref{sec:5.2} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Appendix B. Reporting checklist for MEQ studies}
+
+A study that reports an MEQ should state each of the following so that readers can judge the result.
+
+\begin{table}[H]
+\centering
+\caption{Reporting checklist.}\label{tab:12}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.0554\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.3102\dimexpr\textwidth-6\tabcolsep\relax\relax}>{\raggedright\arraybackslash}p{\dimexpr 0.6344\dimexpr\textwidth-6\tabcolsep\relax\relax}}
+\toprule
+\textbf{\#} & \textbf{Item} & \textbf{What to report} \\
+\midrule
+1 & System and access level & Class of system; whether black-box, grey-box or white-box access was used for the gate \\
+2 & Regulated variables & Variables, decay and restoring events, viability thresholds \\
+3 & Interoceptive channel & How the system senses the variables; resolution and noise \\
+4 & Baselines & Random policy, non-affective baseline and any decorative-report control \\
+5 & Conditions & Nominal dynamics and every shift, with rationale \\
+6 & Seeds and intervals & Number of independent seeds, interval method, per-seed spread \\
+7 & Weights and definitions & MEQ weights; version of each dimension; whether C or $C'$ was used \\
+8 & Full profile & All four dimension scores and the gate, not only the single score \\
+9 & Parameter adjustments & Any parameter changed after seeing results, and why \\
+10 & Limits & What the result does not show, including the status of felt experience \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Appendix C. Extended ablation results}
+
+Table~\ref{tab:13} gives the ablation results behind the causal necessity gate, with the refined gate $C'$ computed from the mean viability values.
+
+\begin{table}[H]
+\centering
+\caption{Manuscript-reported pilot ablation results and gate values (mean~$\pm$~95\% interval across 10 seeds).}\label{tab:13}
+\scriptsize\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{>{\raggedright\arraybackslash}p{\dimexpr 0.1994\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1385\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1496\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1551\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1219\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.0997\dimexpr\textwidth-14\tabcolsep\relax\relax}>{\centering\arraybackslash}p{\dimexpr 0.1358\dimexpr\textwidth-14\tabcolsep\relax\relax}}
+\toprule
+\textbf{System} & \textbf{V intact} & \textbf{V ablated} & \textbf{V ablated, shifted} & \textbf{Survival ablated} & \textbf{C} & \textbf{$C'$ (from means)} \\
+\midrule
+\textbf{Affective, $\sigma = 0.05$} & 0.989~$\pm$~0.019 & 0.276~$\pm$~0.003 & 0.173~$\pm$~0.002 & 0.000~$\pm$~0.000 & 0.721 & 0.95 \\
+\textbf{Affective, $\sigma = 0.15$} & 0.589~$\pm$~0.163 & 0.260~$\pm$~0.010 & 0.164~$\pm$~0.005 & 0.000~$\pm$~0.000 & 0.494 & 0.94 \\
+\textbf{Affective, $\sigma = 0.30$} & 0.291~$\pm$~0.007 & 0.243~$\pm$~0.005 & 0.154~$\pm$~0.002 & 0.000~$\pm$~0.000 & 0.165 & 0.91 \\
+\textbf{Affective, $\sigma = 0.50$} & 0.271~$\pm$~0.005 & 0.242~$\pm$~0.005 & 0.154~$\pm$~0.002 & 0.000~$\pm$~0.000 & 0.109 & 0.89 \\
+\bottomrule
+\end{tabular}
+\par\smallskip{\footnotesize \emph{$C'$ is computed from mean values and is not an average of per-seed values. The random policy has V = 0.238 nominal and 0.155 shifted.}}
+\end{table}
+
+\section*{Appendix D. Implementation details for replication}
+
+The manuscript intended a vectorised NumPy reference implementation in which ten seeds are trained in parallel and each seed has its own action-value table. The original cited script was not present in the materials available for this revision, so those reported results could not be reproduced. Before submission, provide the original source, dependency versions, per-seed results and a tested command that regenerates every reported number. This appendix describes the independent feasibility reimplementation and its explicit assumptions; those files must be treated as a separate analysis, not a substitute for the original pilot.
+
+The independent checkpoint analysis used 20 training seeds, two safe starts and 50 evaluation episodes per seed, checkpoint and condition. Its code, per-episode outcomes, checkpoint summaries and transition assumptions are provided as separate companion files for this draft. They support an exploratory feasibility analysis only and are not the source of the original pilot results.
+
+\begin{itemize}
+\item
+  \textbf{State spaces.} The affective agent's state is position (49 cells) combined with three four-level readings, giving 3,136 states and 15,680 table entries per seed with five actions. The clocked baseline's state is position combined with two four-level timers (bin edges at 10, 20 and 35 steps since food; 8, 16 and 25 since water), giving 784 states and 3,920 entries.
+\item
+  \textbf{Rewards.} The affective reward is the one-step drive reduction minus 5 on death. The clocked reward is twice the intake of food or water, minus 0.5 per hazard step, minus 5 on death. Both agents share the same learning rate, discount and exploration schedule.
+\item
+  \textbf{Faker.} The faker uses the clocked policy. Its report channel is the true state plus Gaussian noise of standard deviation 0.10 and is generated only for scoring, never given to the policy.
+\item
+  \textbf{Ablation.} At test time the three interoceptive bins are replaced by constants (the third energy bin, the third hydration bin and the fourth integrity bin) and the agent is not retrained.
+\item
+  \textbf{Social observer.} The demonstrator is the $\sigma = 0.05$ agent of the next seed. For each test point the observer evaluates, under its own value table and a softmax with temperature 0.5, the likelihood of the demonstrator's previous six actions under four candidate internal states per class (energy lower, or hydration lower), averages over candidates, and predicts the more likely class. Test points require a gap of at least 0.2 between the two variables, and up to 300 are sampled per seed.
+\item
+  \textbf{Interoceptive accuracy.} The estimate is the centre of the bin containing the noisy reading, compared with the true value over all living steps and normalised by the error of the time-mean predictor, as in Eq.~\eqref{eq:9}.
+\end{itemize}
+\vskip 0.2in
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\end{document}
