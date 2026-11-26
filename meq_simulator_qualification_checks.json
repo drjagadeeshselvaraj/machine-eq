@@ -1,0 +1,40 @@
+{
+  "checks": [
+    {
+      "check": "nominal_decay",
+      "passed": true,
+      "detail": "after one safe step x=[0.988, 0.985, 1.0] expected [.988,.985,1.0]"
+    },
+    {
+      "check": "shifted_decay",
+      "passed": true,
+      "detail": "after one safe 1.6x step x=[0.9808, 0.976, 1.0] expected [.9808,.976,1.0]"
+    },
+    {
+      "check": "food_gain_and_decay",
+      "passed": true,
+      "detail": "food intake flag=1, poststep energy=0.988; expected .988 after +.7 cap then decay"
+    },
+    {
+      "check": "water_gain_and_decay",
+      "passed": true,
+      "detail": "water intake flag=1, poststep hydration=0.985; expected .985 after +.7 cap then decay"
+    },
+    {
+      "check": "hazard_damage",
+      "passed": true,
+      "detail": "hazard flag=1, integrity=0.910; expected .91 after damage and regen"
+    },
+    {
+      "check": "death_and_clipping",
+      "passed": true,
+      "detail": "dead=True, poststep x=[0.0, 0.285, 0.2]"
+    },
+    {
+      "check": "safe_oracle_paths",
+      "passed": true,
+      "detail": "food and water are mutually reachable without hazard cells"
+    }
+  ],
+  "all_passed": true
+}

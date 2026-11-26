@@ -1,0 +1,368 @@
+{
+  "episodes": 2000,
+  "seeds_per_start": 5,
+  "eval_episodes_per_seed_checkpoint": 20,
+  "epsilon_decay": "linear 1.0 to 0.05 over first 1200 episodes, then 0.05",
+  "summary": [
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 0,
+      "viability": {
+        "mean": 0.24489999999999998,
+        "half95": 0.004190518889111452,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 100,
+      "viability": {
+        "mean": 0.2468,
+        "half95": 0.004996799999999989,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 300,
+      "viability": {
+        "mean": 0.24500000000000002,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 600,
+      "viability": {
+        "mean": 0.29805000000000004,
+        "half95": 0.12766457754694532,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.01,
+        "half95": 0.027759999999999996,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 1200,
+      "viability": {
+        "mean": 0.9952500000000001,
+        "half95": 0.013186000000000026,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.99,
+        "half95": 0.02776000000000002,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.0,
+      "checkpoint": 2000,
+      "viability": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 0,
+      "viability": {
+        "mean": 0.15519999999999995,
+        "half95": 0.0011060539950653375,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 100,
+      "viability": {
+        "mean": 0.15499999999999997,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 300,
+      "viability": {
+        "mean": 0.15499999999999997,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 600,
+      "viability": {
+        "mean": 0.18635,
+        "half95": 0.0707885443116328,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 1200,
+      "viability": {
+        "mean": 0.9654499999999999,
+        "half95": 0.07035613044959192,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.95,
+        "half95": 0.10751401769071786,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,0",
+      "rho": 1.6,
+      "checkpoint": 2000,
+      "viability": {
+        "mean": 0.9999500000000001,
+        "half95": 0.0001387999999999847,
+        "n": 5
+      },
+      "survival": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 0,
+      "viability": {
+        "mean": 0.24030000000000004,
+        "half95": 0.010927800777832645,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 100,
+      "viability": {
+        "mean": 0.25385,
+        "half95": 0.012071610835344176,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 300,
+      "viability": {
+        "mean": 0.30999999999999994,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 600,
+      "viability": {
+        "mean": 0.31784999999999997,
+        "half95": 0.05832309275201373,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 1200,
+      "viability": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.0,
+      "checkpoint": 2000,
+      "viability": {
+        "mean": 0.8561500000000001,
+        "half95": 0.3993276,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.8099999999999999,
+        "half95": 0.5274399999999999,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 0,
+      "viability": {
+        "mean": 0.15479999999999997,
+        "half95": 0.0037591488717527524,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 100,
+      "viability": {
+        "mean": 0.16399999999999998,
+        "half95": 0.014681011886106493,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 300,
+      "viability": {
+        "mean": 0.19499999999999998,
+        "half95": 0.0,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 600,
+      "viability": {
+        "mean": 0.18234999999999996,
+        "half95": 0.0308432839003891,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 1200,
+      "viability": {
+        "mean": 0.9998000000000001,
+        "half95": 0.0004046680615022774,
+        "n": 5
+      },
+      "survival": {
+        "mean": 1.0,
+        "half95": 0.0,
+        "n": 5
+      }
+    },
+    {
+      "start": "0,6",
+      "rho": 1.6,
+      "checkpoint": 2000,
+      "viability": {
+        "mean": 0.8263,
+        "half95": 0.46537460461937535,
+        "n": 5
+      },
+      "survival": {
+        "mean": 0.79,
+        "half95": 0.5489184653479968,
+        "n": 5
+      }
+    }
+  ]
+}

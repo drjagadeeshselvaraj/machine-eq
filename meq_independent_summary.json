@@ -1,8 +1,8 @@
 {
   "status": "independent reimplementation; exploratory, not preregistered; not a reproduction of the missing script",
-  "episodes_per_seed": 300,
-  "seeds": 10,
-  "evaluation_episodes_per_seed": 40,
+  "episodes_per_seed": 1200,
+  "seeds": 20,
+  "evaluation_episodes_per_seed": 100,
   "starts": [
     [
       0,
@@ -11,6 +11,14 @@
     [
       0,
       6
+    ],
+    [
+      6,
+      0
+    ],
+    [
+      6,
+      6
     ]
   ],
   "summary": [
@@ -18,41 +26,41 @@
       "start": "0,0",
       "arm": "sensing_1_valence",
       "outcome": "nominal_viability",
-      "mean": 0.2520625,
-      "half95": 0.014118275637560173,
-      "n": 10
+      "mean": 0.9994724999999999,
+      "half95": 0.0006848265346275325,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_1_valence",
       "outcome": "nominal_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.9984999999999999,
+      "half95": 0.001714539599855801,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_1_valence",
       "outcome": "shift_viability",
-      "mean": 0.15885,
-      "half95": 0.008242193485504933,
-      "n": 10
+      "mean": 0.8900325,
+      "half95": 0.044605841636619036,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_1_valence",
       "outcome": "shift_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.762,
+      "half95": 0.08641140839459129,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_1_task",
       "outcome": "nominal_viability",
-      "mean": 0.24500000000000002,
+      "mean": 0.33,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
@@ -60,15 +68,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_1_task",
       "outcome": "shift_viability",
-      "mean": 0.155,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.205,
+      "half95": 1.3327315112362673e-17,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -76,15 +84,15 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_0_valence",
       "outcome": "nominal_viability",
-      "mean": 0.24500000000000002,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.36748249999999993,
+      "half95": 0.0036697326658341827,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -92,15 +100,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_0_valence",
       "outcome": "shift_viability",
-      "mean": 0.155,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.2177825,
+      "half95": 0.0015086396412020474,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -108,15 +116,15 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_0_task",
       "outcome": "nominal_viability",
-      "mean": 0.24500000000000002,
+      "mean": 0.33,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
@@ -124,15 +132,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "sensing_0_task",
       "outcome": "shift_viability",
-      "mean": 0.155,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.205,
+      "half95": 1.3327315112362673e-17,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -140,47 +148,47 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "intact",
       "outcome": "nominal_viability",
-      "mean": 0.25345,
-      "half95": 0.013641280188640657,
-      "n": 10
+      "mean": 0.9997125,
+      "half95": 0.00046030193384449726,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "intact",
       "outcome": "nominal_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.9984999999999999,
+      "half95": 0.001714539599855801,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "intact",
       "outcome": "shift_viability",
-      "mean": 0.15869999999999998,
-      "half95": 0.006886212279620778,
-      "n": 10
+      "mean": 0.9773375000000002,
+      "half95": 0.007755854435155045,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "intact",
       "outcome": "shift_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.9475000000000001,
+      "half95": 0.017503063429237024,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "fixed_clamp",
       "outcome": "nominal_viability",
-      "mean": 0.24500000000000002,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.3689475,
+      "half95": 0.002279181899585545,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -188,15 +196,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "fixed_clamp",
       "outcome": "shift_viability",
-      "mean": 0.155,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.217655,
+      "half95": 0.0011928529663501083,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -204,15 +212,15 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "donor_shuffle",
       "outcome": "nominal_viability",
-      "mean": 0.27093749999999994,
-      "half95": 0.013016211636959695,
-      "n": 10
+      "mean": 0.356055,
+      "half95": 0.005663214073968371,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -220,15 +228,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "donor_shuffle",
       "outcome": "shift_viability",
-      "mean": 0.1617,
-      "half95": 0.004648961860996504,
-      "n": 10
+      "mean": 0.21580249999999998,
+      "half95": 0.0015396541459822871,
+      "n": 20
     },
     {
       "start": "0,0",
@@ -236,63 +244,63 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "gate_fixed_clamp",
       "outcome": "C_per_seed",
-      "mean": 0.02908042841727526,
-      "half95": 0.04504394739375185,
-      "n": 10
+      "mean": 0.6309476228718329,
+      "half95": 0.002227192158926785,
+      "n": 20
     },
     {
       "start": "0,0",
       "arm": "gate_donor_shuffle",
       "outcome": "C_per_seed",
-      "mean": -0.07268523870738233,
-      "half95": 0.06420419193043808,
-      "n": 10
+      "mean": 0.6438444103338686,
+      "half95": 0.00563566605099823,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_1_valence",
       "outcome": "nominal_viability",
-      "mean": 0.28145,
-      "half95": 0.023782888949515777,
-      "n": 10
+      "mean": 0.998645,
+      "half95": 0.0012620930665184489,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_1_valence",
       "outcome": "nominal_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.9970000000000001,
+      "half95": 0.002673457440134505,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_1_valence",
       "outcome": "shift_viability",
-      "mean": 0.174875,
-      "half95": 0.014245724595909467,
-      "n": 10
+      "mean": 0.9260425,
+      "half95": 0.021626806037288972,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_1_valence",
       "outcome": "shift_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.8400000000000001,
+      "half95": 0.0390680219078145,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_1_task",
       "outcome": "nominal_viability",
-      "mean": 0.26450000000000007,
-      "half95": 0.022459203480978563,
-      "n": 10
+      "mean": 0.35974999999999996,
+      "half95": 0.019467135603082827,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -300,15 +308,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_1_task",
       "outcome": "shift_viability",
-      "mean": 0.16699999999999998,
-      "half95": 0.013821048295986814,
-      "n": 10
+      "mean": 0.22425,
+      "half95": 0.012596381860818323,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -316,15 +324,15 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_0_valence",
       "outcome": "nominal_viability",
-      "mean": 0.24500000000000002,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.35991749999999995,
+      "half95": 0.0018772366422640707,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -332,15 +340,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_0_valence",
       "outcome": "shift_viability",
-      "mean": 0.155,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.21963749999999999,
+      "half95": 0.0014641530245507084,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -348,15 +356,15 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_0_task",
       "outcome": "nominal_viability",
-      "mean": 0.25800000000000006,
-      "half95": 0.01960399999999999,
-      "n": 10
+      "mean": 0.38099999999999995,
+      "half95": 0.01999479585713293,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -364,15 +372,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "sensing_0_task",
       "outcome": "shift_viability",
-      "mean": 0.16299999999999998,
-      "half95": 0.012064000000000002,
-      "n": 10
+      "mean": 0.23799999999999993,
+      "half95": 0.012937809084027216,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -380,47 +388,47 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "intact",
       "outcome": "nominal_viability",
-      "mean": 0.2817625,
-      "half95": 0.023645912522582517,
-      "n": 10
+      "mean": 0.99917,
+      "half95": 0.0009686828912619875,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "intact",
       "outcome": "nominal_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.998,
+      "half95": 0.0024483815707094106,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "intact",
       "outcome": "shift_viability",
-      "mean": 0.1744875,
-      "half95": 0.013889485988081963,
-      "n": 10
+      "mean": 0.9417475,
+      "half95": 0.03012511282493119,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "intact",
       "outcome": "shift_survival",
-      "mean": 0.0,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.8880000000000001,
+      "half95": 0.05418872754403912,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "fixed_clamp",
       "outcome": "nominal_viability",
-      "mean": 0.24500000000000002,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.3675574999999999,
+      "half95": 0.0022358635203366195,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -428,15 +436,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "fixed_clamp",
       "outcome": "shift_viability",
-      "mean": 0.155,
-      "half95": 0.0,
-      "n": 10
+      "mean": 0.22058749999999994,
+      "half95": 0.0016093278833097888,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -444,15 +452,15 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "donor_shuffle",
       "outcome": "nominal_viability",
-      "mean": 0.28065,
-      "half95": 0.011072975198766587,
-      "n": 10
+      "mean": 0.3715974999999999,
+      "half95": 0.007122379422620415,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -460,15 +468,15 @@
       "outcome": "nominal_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "donor_shuffle",
       "outcome": "shift_viability",
-      "mean": 0.1687375,
-      "half95": 0.005284971578743351,
-      "n": 10
+      "mean": 0.2244675,
+      "half95": 0.0016028392212499986,
+      "n": 20
     },
     {
       "start": "0,6",
@@ -476,23 +484,503 @@
       "outcome": "shift_survival",
       "mean": 0.0,
       "half95": 0.0,
-      "n": 10
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "gate_fixed_clamp",
       "outcome": "C_per_seed",
-      "mean": 0.11993586635397342,
-      "half95": 0.07159439071554725,
-      "n": 10
+      "mean": 0.6321356586728889,
+      "half95": 0.0022675256393419737,
+      "n": 20
     },
     {
       "start": "0,6",
       "arm": "gate_donor_shuffle",
       "outcome": "C_per_seed",
-      "mean": -0.006182688677278442,
-      "half95": 0.07759270658878942,
-      "n": 10
+      "mean": 0.628087436332542,
+      "half95": 0.007201795159048785,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_valence",
+      "outcome": "nominal_viability",
+      "mean": 0.9988025,
+      "half95": 0.001848931454211342,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_valence",
+      "outcome": "nominal_survival",
+      "mean": 0.9964999999999999,
+      "half95": 0.0046243360533389614,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_valence",
+      "outcome": "shift_viability",
+      "mean": 0.9124449999999997,
+      "half95": 0.020950066519287408,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_valence",
+      "outcome": "shift_survival",
+      "mean": 0.818,
+      "half95": 0.04154486377399739,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_task",
+      "outcome": "nominal_viability",
+      "mean": 0.37249999999999994,
+      "half95": 0.020407103067121124,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_task",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_task",
+      "outcome": "shift_viability",
+      "mean": 0.23249999999999998,
+      "half95": 0.01320459610225487,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_1_task",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_valence",
+      "outcome": "nominal_viability",
+      "mean": 0.3586674999999999,
+      "half95": 0.001977132621275448,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_valence",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_valence",
+      "outcome": "shift_viability",
+      "mean": 0.22024749999999998,
+      "half95": 0.0012120885765372332,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_valence",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_task",
+      "outcome": "nominal_viability",
+      "mean": 0.39374999999999993,
+      "half95": 0.017673069673774227,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_task",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_task",
+      "outcome": "shift_viability",
+      "mean": 0.24625,
+      "half95": 0.0114355156712657,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "sensing_0_task",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "intact",
+      "outcome": "nominal_viability",
+      "mean": 0.9999800000000001,
+      "half95": 4.185999999999539e-05,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "intact",
+      "outcome": "nominal_survival",
+      "mean": 0.9995,
+      "half95": 0.0010465000000000006,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "intact",
+      "outcome": "shift_viability",
+      "mean": 0.9472324999999998,
+      "half95": 0.021660641144333605,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "intact",
+      "outcome": "shift_survival",
+      "mean": 0.9005000000000001,
+      "half95": 0.03667782332457785,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "fixed_clamp",
+      "outcome": "nominal_viability",
+      "mean": 0.36755499999999997,
+      "half95": 0.002022650963750103,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "fixed_clamp",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "fixed_clamp",
+      "outcome": "shift_viability",
+      "mean": 0.22049999999999997,
+      "half95": 0.0016763266547016261,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "fixed_clamp",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "donor_shuffle",
+      "outcome": "nominal_viability",
+      "mean": 0.36350749999999993,
+      "half95": 0.005474485859334999,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "donor_shuffle",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "donor_shuffle",
+      "outcome": "shift_viability",
+      "mean": 0.22431,
+      "half95": 0.0027390010144293033,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "donor_shuffle",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "gate_fixed_clamp",
+      "outcome": "C_per_seed",
+      "mean": 0.632437486994798,
+      "half95": 0.0020295045893915847,
+      "n": 20
+    },
+    {
+      "start": "6,0",
+      "arm": "gate_donor_shuffle",
+      "outcome": "C_per_seed",
+      "mean": 0.6364853681472589,
+      "half95": 0.005472386007437168,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_valence",
+      "outcome": "nominal_viability",
+      "mean": 0.9995799999999999,
+      "half95": 0.0007142395285012521,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_valence",
+      "outcome": "nominal_survival",
+      "mean": 0.999,
+      "half95": 0.0014405013929732582,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_valence",
+      "outcome": "shift_viability",
+      "mean": 0.9342975000000001,
+      "half95": 0.015662265882014807,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_valence",
+      "outcome": "shift_survival",
+      "mean": 0.85,
+      "half95": 0.03432439395715991,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_task",
+      "outcome": "nominal_viability",
+      "mean": 0.4149999999999999,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_task",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_task",
+      "outcome": "shift_viability",
+      "mean": 0.25999999999999995,
+      "half95": 2.6654630224725346e-17,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_1_task",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_valence",
+      "outcome": "nominal_viability",
+      "mean": 0.37821999999999995,
+      "half95": 0.0024310568315268153,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_valence",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_valence",
+      "outcome": "shift_viability",
+      "mean": 0.22889749999999998,
+      "half95": 0.0013255890724964724,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_valence",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_task",
+      "outcome": "nominal_viability",
+      "mean": 0.4149999999999999,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_task",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_task",
+      "outcome": "shift_viability",
+      "mean": 0.25999999999999995,
+      "half95": 2.6654630224725346e-17,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "sensing_0_task",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "intact",
+      "outcome": "nominal_viability",
+      "mean": 0.9994325000000002,
+      "half95": 0.0008321683926604649,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "intact",
+      "outcome": "nominal_survival",
+      "mean": 0.999,
+      "half95": 0.0014405013929732582,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "intact",
+      "outcome": "shift_viability",
+      "mean": 0.9705949999999998,
+      "half95": 0.011585826676290337,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "intact",
+      "outcome": "shift_survival",
+      "mean": 0.9360000000000002,
+      "half95": 0.023931406490876765,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "fixed_clamp",
+      "outcome": "nominal_viability",
+      "mean": 0.38929749999999996,
+      "half95": 0.0035119677616560633,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "fixed_clamp",
+      "outcome": "nominal_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "fixed_clamp",
+      "outcome": "shift_viability",
+      "mean": 0.23073749999999996,
+      "half95": 0.0017788373663563824,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "fixed_clamp",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "donor_shuffle",
+      "outcome": "nominal_viability",
+      "mean": 0.38604249999999996,
+      "half95": 0.009447980080613906,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "donor_shuffle",
+      "outcome": "nominal_survival",
+      "mean": 0.0005,
+      "half95": 0.0010465000000000001,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "donor_shuffle",
+      "outcome": "shift_viability",
+      "mean": 0.24374249999999997,
+      "half95": 0.0022182639880139227,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "donor_shuffle",
+      "outcome": "shift_survival",
+      "mean": 0.0,
+      "half95": 0.0,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "gate_fixed_clamp",
+      "outcome": "C_per_seed",
+      "mean": 0.610483058326625,
+      "half95": 0.003456786372746627,
+      "n": 20
+    },
+    {
+      "start": "6,6",
+      "arm": "gate_donor_shuffle",
+      "outcome": "C_per_seed",
+      "mean": 0.6137314900416126,
+      "half95": 0.009510927151430327,
+      "n": 20
     }
   ]
 }

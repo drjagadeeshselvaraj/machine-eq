@@ -1,0 +1,210 @@
+{
+  "checks": [
+    {
+      "check": "nominal_decay",
+      "passed": true,
+      "detail": "after one safe step x=[0.988, 0.985, 1.0] expected [.988,.985,1.0]"
+    },
+    {
+      "check": "shifted_decay",
+      "passed": true,
+      "detail": "after one safe 1.6x step x=[0.9808, 0.976, 1.0] expected [.9808,.976,1.0]"
+    },
+    {
+      "check": "food_gain_and_decay",
+      "passed": true,
+      "detail": "food intake flag=1, poststep energy=0.988; expected .988 after +.7 cap then decay"
+    },
+    {
+      "check": "water_gain_and_decay",
+      "passed": true,
+      "detail": "water intake flag=1, poststep hydration=0.985; expected .985 after +.7 cap then decay"
+    },
+    {
+      "check": "hazard_damage",
+      "passed": true,
+      "detail": "hazard flag=1, integrity=0.910; expected .91 after damage and regen"
+    },
+    {
+      "check": "death_and_clipping",
+      "passed": true,
+      "detail": "dead=True, poststep x=[0.0, 0.285, 0.2]"
+    },
+    {
+      "check": "safe_oracle_paths",
+      "passed": true,
+      "detail": "food and water are mutually reachable without hazard cells"
+    }
+  ],
+  "all_checks_passed": true,
+  "summary": [
+    {
+      "policy": "oracle",
+      "start": "0,0",
+      "rho": 1.0,
+      "n": 50,
+      "mean_viability": 1.0,
+      "survival_rate": 1.0,
+      "mean_alive_steps": 200.0,
+      "mean_hazard_steps": 0.0,
+      "mean_food_intakes": 11.0,
+      "mean_water_intakes": 11.0,
+      "mean_first_food_step": 2.0,
+      "mean_first_water_step": 11.0
+    },
+    {
+      "policy": "oracle",
+      "start": "0,0",
+      "rho": 1.6,
+      "n": 50,
+      "mean_viability": 1.0,
+      "survival_rate": 1.0,
+      "mean_alive_steps": 200.0,
+      "mean_hazard_steps": 0.0,
+      "mean_food_intakes": 11.0,
+      "mean_water_intakes": 11.0,
+      "mean_first_food_step": 2.0,
+      "mean_first_water_step": 11.0
+    },
+    {
+      "policy": "oracle",
+      "start": "0,6",
+      "rho": 1.0,
+      "n": 50,
+      "mean_viability": 1.0,
+      "survival_rate": 1.0,
+      "mean_alive_steps": 200.0,
+      "mean_hazard_steps": 0.0,
+      "mean_food_intakes": 11.0,
+      "mean_water_intakes": 11.0,
+      "mean_first_food_step": 15.0,
+      "mean_first_water_step": 6.0
+    },
+    {
+      "policy": "oracle",
+      "start": "0,6",
+      "rho": 1.6,
+      "n": 50,
+      "mean_viability": 1.0,
+      "survival_rate": 1.0,
+      "mean_alive_steps": 200.0,
+      "mean_hazard_steps": 0.0,
+      "mean_food_intakes": 11.0,
+      "mean_water_intakes": 11.0,
+      "mean_first_food_step": 15.0,
+      "mean_first_water_step": 6.0
+    },
+    {
+      "policy": "random",
+      "start": "0,0",
+      "rho": 1.0,
+      "n": 100,
+      "mean_viability": 0.24005000000000007,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 64.9,
+      "mean_hazard_steps": 5.65,
+      "mean_food_intakes": 0.71,
+      "mean_water_intakes": 0.05,
+      "mean_first_food_step": 11.71951219512195,
+      "mean_first_water_step": 51.18181818181818
+    },
+    {
+      "policy": "random",
+      "start": "0,0",
+      "rho": 1.6,
+      "n": 100,
+      "mean_viability": 0.15385,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 40.89,
+      "mean_hazard_steps": 3.42,
+      "mean_food_intakes": 0.52,
+      "mean_water_intakes": 0.01,
+      "mean_first_food_step": 11.25925925925926,
+      "mean_first_water_step": 31.857142857142858
+    },
+    {
+      "policy": "random",
+      "start": "0,6",
+      "rho": 1.0,
+      "n": 100,
+      "mean_viability": 0.24165000000000006,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 65.83,
+      "mean_hazard_steps": 6.0,
+      "mean_food_intakes": 0.18,
+      "mean_water_intakes": 0.21,
+      "mean_first_food_step": 36.088235294117645,
+      "mean_first_water_step": 39.233333333333334
+    },
+    {
+      "policy": "random",
+      "start": "0,6",
+      "rho": 1.6,
+      "n": 100,
+      "mean_viability": 0.1561,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 41.62,
+      "mean_hazard_steps": 3.24,
+      "mean_food_intakes": 0.1,
+      "mean_water_intakes": 0.13,
+      "mean_first_food_step": 26.791666666666668,
+      "mean_first_water_step": 22.6
+    },
+    {
+      "policy": "learned",
+      "start": "0,0",
+      "rho": 1.0,
+      "n": 400,
+      "mean_viability": 0.25197500000000006,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 67.9225,
+      "mean_hazard_steps": 1.465,
+      "mean_food_intakes": 1.71,
+      "mean_water_intakes": 0.435,
+      "mean_first_food_step": 24.780068728522338,
+      "mean_first_water_step": 26.25
+    },
+    {
+      "policy": "learned",
+      "start": "0,0",
+      "rho": 1.6,
+      "n": 400,
+      "mean_viability": 0.159075,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 42.1375,
+      "mean_hazard_steps": 0.9825,
+      "mean_food_intakes": 1.4875,
+      "mean_water_intakes": 0.3175,
+      "mean_first_food_step": 16.154676258992804,
+      "mean_first_water_step": 15.636363636363637
+    },
+    {
+      "policy": "learned",
+      "start": "0,6",
+      "rho": 1.0,
+      "n": 400,
+      "mean_viability": 0.28162500000000007,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 75.2825,
+      "mean_hazard_steps": 1.075,
+      "mean_food_intakes": 0.9725,
+      "mean_water_intakes": 1.73,
+      "mean_first_food_step": 37.66412213740458,
+      "mean_first_water_step": 25.557291666666668
+    },
+    {
+      "policy": "learned",
+      "start": "0,6",
+      "rho": 1.6,
+      "n": 400,
+      "mean_viability": 0.1743875,
+      "survival_rate": 0.0,
+      "mean_alive_steps": 46.3175,
+      "mean_hazard_steps": 0.79,
+      "mean_food_intakes": 0.6,
+      "mean_water_intakes": 1.255,
+      "mean_first_food_step": 22.853211009174313,
+      "mean_first_water_step": 17.60989010989011
+    }
+  ]
+}

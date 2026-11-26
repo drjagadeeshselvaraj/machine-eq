@@ -33,6 +33,10 @@ Before running the confirmatory study, freeze the source, environment parameters
 
 For the gate, compare intact sensing with donor-shuffled readings within the same trained sensing-plus-valence policy. Report paired absolute differences in viability and survival as primary intervention estimates and C as a secondary normalized summary. Report fixed clamp separately. Also include a retrained no-sensor policy as a learning-adaptation comparison; do not call that retrained contrast a test-time causal gate. Include sensor-noise and donor-pool sensitivity analyses, and report failures, exclusions, and all seeds.
 
+### Checkpoint stability requirement
+
+The subsequent full-budget qualification found a sharp regression in one seed after performance had become strong by episode 1,200. The fixed-final-checkpoint design above should therefore be amended before registration: retain prespecified checkpoints including 1,200 and 2,000 episodes; select any deployed checkpoint only using a separate validation set and a rule frozen before training; and report the 2,000-episode endpoint alongside the selected checkpoint. Keep confirmatory test episodes and held-out starts/layouts untouched until the selection rule is applied. Do not choose a checkpoint by looking at the final test results. The qualification report contains the screening evidence and matched-seed regression follow-up. A subsequent 20-seed paired check showed no clear mean checkpoint difference by 95% intervals, but individual seeds improved or regressed depending on start and metabolism. The next registration should prespecify both a validation-based checkpoint rule and per-seed regression reporting; neither checkpoint is established as universally superior.
+
 ### Decision criteria
 
 Evidence for useful sensor dependence requires a positive paired intact-minus-donor-shuffle viability contrast with a 95% interval excluding zero, the same direction for survival, and consistency across at least three of four starts and both layouts. The reward main effect and sensing-by-reward interaction are reported whether or not they meet this criterion. These criteria establish only policy dependence on the measured channel under this simulator; they do not validate affect, emotion, consciousness, or a general MEQ construct.
@@ -62,5 +66,8 @@ Simulation supports claims only about the specified simulated policy and interve
 - `outputs/meq_independent_intervention_seed_results.csv`: per-seed intervention outcomes.
 - `outputs/meq_independent_summary.json`: means and 95% t intervals.
 - `outputs/MEQ_independent_simulation_results.md`: concise analysis and interpretation.
+- `outputs/MEQ_episode_level_diagnosis.md`: transition checks and episode-level failure diagnosis.
+- `outputs/MEQ_full_budget_qualification.md`: 2,000-episode checkpoint and regression analysis.
+- `outputs/MEQ_focused_checkpoint_check.md`: 20-seed paired checkpoint feasibility check.
 
 The independent simulation source SHA-256 is `cc109e8aa640404251b8116708390bdaac8a70a7dc4b9c40109d925ae4789f98`. The report should be regenerated from the source and the CSV files; no result should be copied into the manuscript as an original-pilot result.
